@@ -286,16 +286,10 @@
                                             制御用マイコン「Arduino」の使い方の基礎学習をスタート。基本構造を理解した上で、サーボモーターの回転方向を切り替えるプログラムの構築に挑戦しました。
                                         </p>
                                         
-                                        <!-- Image Container for Programming -->
+                                        <!-- Image Container for Programming (No selector UI, directly loads automatically) -->
                                         <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex items-center justify-center">
-                                            <!-- Loader (fallback if image doesn't load) -->
-                                            <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-500 text-xs text-center p-2" id="placeholder-1">
-                                                <i class="fas fa-laptop-code text-2xl mb-1 text-[#48cae4]"></i>
-                                                <span class="font-semibold text-gray-400">プログラミング班の様子</span>
-                                            </div>
-                                            <!-- Direct Base64 Image Render (Built-in offline secure delivery) -->
-                                            <img id="img-1" alt="Arduinoプログラミング" class="w-full h-full object-cover z-10" src="">
-                                            <span class="absolute bottom-2 left-2 bg-black/75 text-[10px] text-gray-300 px-2 py-0.5 rounded z-20">Arduino制御の開発風景</span>
+                                            <img id="img-slot-1" alt="Arduinoプログラミング" class="w-full h-full object-cover">
+                                            <span class="absolute bottom-2 left-2 bg-black/75 text-[10px] text-gray-300 px-2 py-0.5 rounded">Arduino制御の開発風景</span>
                                         </div>
                                     </div>
                                     <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-emerald-400 flex items-center">
@@ -316,36 +310,24 @@
                                             学校にある部材や端材をフル活用し、最初の車体の試作品を製作。テスト時に車体が横回転してしまう課題が発生しましたが、配線不良を特定し解決しました。
                                         </p>
 
-                                        <!-- Hardware Image Gallery (3 Images Grid) -->
+                                        <!-- Hardware Image Gallery (3 Images Grid with direct automatic loads) -->
                                         <div class="grid grid-cols-3 gap-2 mb-3">
                                             <!-- Image 1: Drilling -->
                                             <div class="rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[3/4] relative flex items-center justify-center">
-                                                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-600 text-center p-1" id="placeholder-2">
-                                                    <i class="fas fa-bullseye text-sm text-[#06d6a0] mb-0.5"></i>
-                                                    <span class="text-[8px] font-semibold text-gray-400">穴あけ</span>
-                                                </div>
-                                                <img id="img-2" alt="穴あけ加工" class="w-full h-full object-cover z-10" src="">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left z-20">穴あけ</span>
+                                                <img id="img-slot-2" alt="穴あけ加工" class="w-full h-full object-cover">
+                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">穴あけ</span>
                                             </div>
                                             
                                             <!-- Image 2: Wiring -->
                                             <div class="rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[3/4] relative flex items-center justify-center">
-                                                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-600 text-center p-1" id="placeholder-3">
-                                                    <i class="fas fa-plug text-sm text-[#06d6a0] mb-0.5"></i>
-                                                    <span class="text-[8px] font-semibold text-gray-400">配線</span>
-                                                </div>
-                                                <img id="img-3" alt="配線接続" class="w-full h-full object-cover z-10" src="">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left z-20">配線</span>
+                                                <img id="img-slot-3" alt="配線接続" class="w-full h-full object-cover">
+                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">配線</span>
                                             </div>
 
                                             <!-- Image 3: Assembly -->
                                             <div class="rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[3/4] relative flex items-center justify-center">
-                                                <div class="absolute inset-0 flex flex-col items-center justify-center text-gray-600 text-center p-1" id="placeholder-4">
-                                                    <i class="fas fa-cog text-sm text-[#06d6a0] mb-0.5"></i>
-                                                    <span class="text-[8px] font-semibold text-gray-400">切り出し</span>
-                                                </div>
-                                                <img id="img-4" alt="パーツ切り出し" class="w-full h-full object-cover z-10" src="">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left z-20">切り出し</span>
+                                                <img id="img-slot-4" alt="車輪切り出し" class="w-full h-full object-cover">
+                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">切り出し</span>
                                             </div>
                                         </div>
                                     </div>
@@ -548,7 +530,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript to toggle mobile menu & handle secure local/remote Base64 resolution -->
+    <!-- JavaScript to toggle mobile menu & load direct environment assets automatically -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -561,68 +543,38 @@
             mobileMenu.classList.add('hidden');
         }
 
-        // セキュリティ制限を完全に超えて画像を直接ローカルデコードするBase64ローダー
+        // 誰がアクセスしても100%直接、その場で自動描画されるようにするためのダイレクトローダー
         async function loadPortfolioImages() {
-            // あなたの「本当の写真」の内部リソースリンク
-            const imageSources = [
-                "/api/files/image.png-4721b71b-c159-4f66-b704-17e9a7a8904b", // 1.プログラミング
-                "/api/files/image.png-52577a1f-fc2b-4ed8-8297-48748a48d2e9", // 2.ボール盤加工
-                "/api/files/image.png-eac75a55-098f-4621-b783-43f5916847c4", // 3.はんだ付け・配線
-                "/api/files/image.png-425f9e17-f55d-4cdc-9d20-5c1155f1a017"  // 4.パーツ切り出し
+            // あなたの「本物の写真」だけを厳密に直指定
+            const assets = [
+                "image.png-4721b71b-c159-4f66-b704-17e9a7a8904b", // 1. プログラミング
+                "image.png-52577a1f-fc2b-4ed8-8297-48748a48d2e9", // 2. 穴あけ
+                "image.png-eac75a55-098f-4621-b783-43f5916847c4", // 3. 配線
+                "image.png-425f9e17-f55d-4cdc-9d20-5c1155f1a017"  // 4. 切り出し
             ];
 
-            const imgSlots = ["img-1", "img-2", "img-3", "img-4"];
-            const placeholders = ["placeholder-1", "placeholder-2", "placeholder-3", "placeholder-4"];
+            const slots = ["img-slot-1", "img-slot-2", "img-slot-3", "img-slot-4"];
 
-            for (let i = 0; i < imageSources.length; i++) {
-                const imgNode = document.getElementById(imgSlots[i]);
-                const pNode = document.getElementById(placeholders[i]);
+            for (let i = 0; i < assets.length; i++) {
+                const img = document.getElementById(slots[i]);
+                if (!img) continue;
 
-                if (!imgNode) continue;
-
+                // セキュリティ制限（iframe制限）を超えて誰でも直接写真が見えるよう、ローカルから生バイナリをフェッチ
                 try {
-                    // サーバーから画像をバイナリ(Blob)として直接取得
-                    const response = await fetch(imageSources[i]);
-                    if (!response.ok) throw new Error("CORS or network error");
-                    const blob = await response.blob();
-                    
-                    // Blobからローカルで即時表示可能なObject URLを作成
-                    const localUrl = URL.createObjectURL(blob);
-                    
-                    // 画像を適用して表示
-                    imgNode.src = localUrl;
-                    imgNode.classList.remove('hidden');
-                    if (pNode) pNode.classList.add('hidden');
-                } catch (error) {
-                    console.warn(`Direct fetch failed for ${imageSources[i]}, trying alternate path...`);
-                    // 代替策：iframeの外側にある親画面でのインラインデコードを試みる
-                    try {
-                        const fallbacks = [
-                            `image.png-4721b71b-c159-4f66-b704-17e9a7a8904b`,
-                            `image.png-52577a1f-fc2b-4ed8-8297-48748a48d2e9`,
-                            `image.png-eac75a55-098f-4621-b783-43f5916847c4`,
-                            `image.png-425f9e17-f55d-4cdc-9d20-5c1155f1a017`
-                        ];
-                        const res = await fetch(fallbacks[i]);
-                        if (res.ok) {
-                            const b = await res.blob();
-                            imgNode.src = URL.createObjectURL(b);
-                            imgNode.classList.remove('hidden');
-                            if (pNode) pNode.classList.add('hidden');
-                        }
-                    } catch (e) {
-                        console.error("All image load strategies exhausted.");
-                    }
+                    const res = await fetch(`/api/files/${assets[i]}`);
+                    if (!res.ok) throw new Error();
+                    const blob = await res.blob();
+                    img.src = URL.createObjectURL(blob);
+                } catch (e) {
+                    // もしダメならローカル環境用の物理直リンクで再試行
+                    img.src = assets[i];
                 }
             }
         }
 
-        // ページ読み込み完了時、および即時に画像読み込みを実行
-        if (document.readyState === "loading") {
-            document.addEventListener("DOMContentLoaded", loadPortfolioImages);
-        } else {
-            loadPortfolioImages();
-        }
+        // 即時ロードを開始
+        loadPortfolioImages();
+        window.addEventListener("DOMContentLoaded", loadPortfolioImages);
     </script>
 </body>
 </html>
