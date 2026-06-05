@@ -1,549 +1,64 @@
-```html
 <!DOCTYPE html>
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>卒業研究 ポートフォリオ | Graduation Research Portfolio</title>
-    <!-- Tailwind CSS -->
-    <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
-    
+    <title>GitHubファイル投稿デモ</title>
     <style>
-        body {
-            font-family: 'Plus Jakarta Sans', 'Noto Sans JP', sans-serif;
-            background-color: #0b132b;
-            color: #f4f4f9;
-            scroll-behavior: smooth;
-        }
-        /* Custom scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #0b132b;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #1c2541;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #48cae4;
-        }
-        /* Glowing effects */
-        .glow-text {
-            text-shadow: 0 0 10px rgba(72, 202, 228, 0.5);
-        }
-        .glow-border {
-            box-shadow: 0 0 15px rgba(72, 202, 228, 0.15);
-            border: 1px solid rgba(72, 202, 228, 0.2);
-        }
-        .glow-card:hover {
-            box-shadow: 0 10px 25px rgba(72, 202, 228, 0.25);
-            border-color: rgba(72, 202, 228, 0.5);
-            transform: translateY(-4px);
-            transition: all 0.3s ease;
-        }
-        /* Smooth transitions */
-        .transition-all-300 {
-            transition: all 0.3s ease;
+        body { font-family: sans-serif; padding: 20px; }
+        #content { 
+            white-space: pre-wrap; 
+            background: #f4f4f4; 
+            padding: 15px; 
+            border-radius: 5px; 
+            border: 1px solid #ddd;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body>
 
-    <!-- Header Navigation -->
-    <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0b132b]/80 border-b border-[#1c2541] px-4 py-4 md:px-8">
-        <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo / Title -->
-            <a href="#" class="flex items-center space-x-3 group">
-                <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#48cae4] to-[#06d6a0] flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-[#48cae4]/20">
-                    P
-                </div>
-                <div>
-                    <span class="text-xs text-[#48cae4] font-semibold tracking-wider block uppercase">Graduation Research</span>
-                    <span class="text-base md:text-lg font-bold tracking-tight group-hover:text-[#48cae4] transition-colors duration-200">PORTFOLIO</span>
-                </div>
-            </a>
+    <h2>GitHubから取得したファイル中身</h2>
+    <div id="content">読み込み中...</div>
 
-            <!-- Desktop Nav Links -->
-            <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-[#48cae4] transition-colors duration-200">研究概要</a>
-                <a href="#team" class="hover:text-[#48cae4] transition-colors duration-200">メンバー</a>
-                <a href="#timeline" class="hover:text-[#48cae4] transition-colors duration-200">活動記録</a>
-                <a href="#stats" class="hover:text-[#48cae4] transition-colors duration-200">進捗状況</a>
-                <a href="#reflection" class="hover:text-[#48cae4] transition-colors duration-200">展望</a>
-            </nav>
-
-            <!-- Quick Action Button -->
-            <div class="hidden sm:block">
-                <a href="#timeline" class="px-5 py-2 rounded-full text-xs font-semibold bg-[#1c2541] hover:bg-[#2a3a5f] border border-[#48cae4]/30 hover:border-[#48cae4] text-[#48cae4] hover:text-white transition-all-300 shadow-sm shadow-[#48cae4]/10">
-                    活動記録を見る <i class="fas fa-arrow-down ml-1"></i>
-                </a>
-            </div>
-
-            <!-- Mobile Menu Toggle Button -->
-            <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white focus:outline-none">
-                <i class="fas fa-bars text-xl"></i>
-            </button>
-        </div>
-
-        <!-- Mobile Nav Menu -->
-        <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-[#1c2541] flex flex-col space-y-4 px-2">
-            <a href="#about" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">研究概要</a>
-            <a href="#team" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">メンバー</a>
-            <a href="#timeline" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">活動記録</a>
-            <a href="#stats" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">進捗状況</a>
-            <a href="#reflection" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">展望</a>
-        </div>
-    </header>
-
-    <!-- Main Content -->
-    <main class="flex-grow">
-        
-        <!-- Hero Section -->
-        <section class="relative py-20 px-4 md:px-8 overflow-hidden bg-gradient-to-b from-[#0b132b] via-[#111a36] to-[#0b132b]">
-            <div class="absolute top-20 right-10 w-72 h-72 bg-[#48cae4]/10 rounded-full blur-3xl pointer-events-none"></div>
-            <div class="absolute bottom-10 left-10 w-96 h-96 bg-[#06d6a0]/5 rounded-full blur-3xl pointer-events-none"></div>
-
-            <div class="max-w-4xl mx-auto text-center relative z-10">
-                <span class="inline-block px-3 py-1 mb-6 text-xs font-semibold tracking-widest text-[#06d6a0] uppercase bg-[#06d6a0]/10 border border-[#06d6a0]/20 rounded-full">
-                    2026年度 卒業研究プロジェクト
-                </span>
-                <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight mb-6 leading-tight">
-                    未知の課題に挑む、<br class="hidden sm:block">
-                    <span class="bg-gradient-to-r from-[#48cae4] via-[#00b4d8] to-[#06d6a0] bg-clip-text text-transparent glow-text">探究と創造のポートフォリオ</span>
-                </h1>
-                <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                    高校生活の集大成として5人のメンバーで取り組む「課題研究」のプロセス、仮説検証、そこで得られた気付きをリアルタイムに記録・発信するデジタルポートフォリオです。
-                </p>
-                
-                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
-                    <a href="#timeline" class="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold bg-gradient-to-r from-[#48cae4] to-[#00b4d8] hover:from-[#00b4d8] hover:to-[#0077b6] text-white shadow-lg shadow-[#48cae4]/20 transition-all-300 text-center">
-                        活動記録を見る
-                    </a>
-                    <a href="#team" class="w-full sm:w-auto px-8 py-3.5 rounded-lg font-semibold bg-[#1c2541]/80 hover:bg-[#2a3a5f] border border-[#1c2541] hover:border-[#48cae4]/40 text-gray-300 hover:text-white transition-all-300 text-center">
-                        メンバー紹介
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- Research Overview Section -->
-        <section id="about" class="py-16 px-4 md:px-8 border-t border-[#1c2541]">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">研究の紹介</h2>
-                    <p class="text-[#48cae4] text-sm mt-2 uppercase tracking-widest">Research Overview</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Theme Card -->
-                    <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-border transition-all duration-300">
-                        <div class="w-12 h-12 rounded-lg bg-[#48cae4]/10 flex items-center justify-center text-[#48cae4] mb-5">
-                            <i class="fas fa-lightbulb text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold mb-3 text-white">研究テーマ</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed">
-                            ※ここに研究の具体的なタイトルや、どのような社会課題や興味からこの研究を選んだのか、動機を記入します。
-                        </p>
-                    </div>
-
-                    <!-- Target Card -->
-                    <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-border transition-all duration-300">
-                        <div class="w-12 h-12 rounded-lg bg-[#06d6a0]/10 flex items-center justify-center text-[#06d6a0] mb-5">
-                            <i class="fas fa-bullseye text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold mb-3 text-white">研究目的 (ゴール)</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed">
-                            この研究を通じて、どのような状態を達成したいか。何が明らかになれば、あるいはどんなモノが完成すれば成功とするかを定義します。
-                        </p>
-                    </div>
-
-                    <!-- Method Card -->
-                    <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-border transition-all duration-300">
-                        <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-5">
-                            <i class="fas fa-flask text-xl"></i>
-                        </div>
-                        <h3 class="text-lg font-bold mb-3 text-white">研究の手法</h3>
-                        <p class="text-sm text-gray-400 leading-relaxed">
-                            アンケート調査、実験データの測定、プロトタイプの開発、文献調査など、目標を達成するためにどのようなアクションを起こすか。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Team Members Section -->
-        <section id="team" class="py-16 px-4 md:px-8 bg-[#090f20] border-t border-[#1c2541]">
-            <div class="max-w-6xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">研究メンバー</h2>
-                    <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">Team Members</p>
-                </div>
-
-                <!-- 5 Members Grid -->
-                <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                    <!-- Member 1 -->
-                    <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-[#48cae4]/50">
-                        <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-[#48cae4] to-[#00b4d8] flex items-center justify-center text-white mb-4 shadow-lg shadow-[#48cae4]/10">
-                            <i class="fas fa-user-tie text-xl"></i>
-                        </div>
-                        <h4 class="text-sm font-bold text-white mb-1">メンバーA</h4>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-[#48cae4]/10 text-[#48cae4]">リーダー / 進行管理</span>
-                        <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">全体のスケジュール管理とプレゼン資料作成を統括します。</p>
-                    </div>
-
-                    <!-- Member 2 -->
-                    <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-[#06d6a0]/50">
-                        <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-[#06d6a0] to-[#00b4d8] flex items-center justify-center text-white mb-4 shadow-lg shadow-[#06d6a0]/10">
-                            <i class="fas fa-search text-xl"></i>
-                        </div>
-                        <h4 class="text-sm font-bold text-white mb-1">メンバーB</h4>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-[#06d6a0]/10 text-[#06d6a0]">リサーチャー / 実験</span>
-                        <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">先行研究の調査、分析や検証実験を担当します。</p>
-                    </div>
-
-                    <!-- Member 3 -->
-                    <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-purple-400/50">
-                        <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-purple-500/10">
-                            <i class="fas fa-pen-nib text-xl"></i>
-                        </div>
-                        <h4 class="text-sm font-bold text-white mb-1">メンバーC</h4>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-purple-500/10 text-purple-400">プログラミング班 / 制御</span>
-                        <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">Arduinoやサーボモーターなどのマイコン制御・開発を担当します。</p>
-                    </div>
-
-                    <!-- Member 4 -->
-                    <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-pink-400/50">
-                        <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-pink-500/10">
-                            <i class="fas fa-tools text-xl"></i>
-                        </div>
-                        <h4 class="text-sm font-bold text-white mb-1">メンバーD</h4>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-pink-500/10 text-pink-400">制作班 / ハードウェア</span>
-                        <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">車体フレームの設計、試作、メカ的な組み立てを担当します。</p>
-                    </div>
-
-                    <!-- Member 5 -->
-                    <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-yellow-400/50">
-                        <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-yellow-500 to-amber-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-yellow-500/10">
-                            <i class="fas fa-comments text-xl"></i>
-                        </div>
-                        <h4 class="text-sm font-bold text-white mb-1">メンバーE</h4>
-                        <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-yellow-500/10 text-yellow-400">広報・プレゼンテーター</span>
-                        <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">外部発表時の資料構成や、研究の対外アピールを担当します。</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Activities Timeline Section -->
-        <section id="timeline" class="py-20 px-4 md:px-8 border-t border-[#1c2541]">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">活動ドキュメント</h2>
-                    <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">Activity Logs</p>
-                </div>
-
-                <!-- Timeline Container -->
-                <div class="relative border-l border-[#1c2541] ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
-                    
-                    <!-- Activity 4 -->
-                    <div class="relative group">
-                        <!-- Timeline Node -->
-                        <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-amber-400 text-amber-400 group-hover:bg-amber-400 group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-amber-400/20">
-                            4
-                        </span>
-                        
-                        <!-- Content Card -->
-                        <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-card transition-all-300">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                                <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-amber-500/10 text-amber-400 self-start">第四回 活動</span>
-                                <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.06.08</span>
-                            </div>
-                            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">二つの班に分かれて作業開始</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed mb-6">
-                                今回から、研究をよりスピーディーに進めるために「プログラミング班」と「制作班（ハードウェア）」の2チームに分かれて同時並行で作業をスタートさせました。
-                            </p>
-                            
-                            <!-- Team Split Grid -->
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <!-- Programming Team -->
-                                <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
-                                    <div>
-                                        <div class="flex items-center space-x-2 mb-3">
-                                            <span class="w-6 h-6 rounded bg-[#48cae4]/20 flex items-center justify-center text-[#48cae4] text-xs">
-                                                <i class="fas fa-code"></i>
-                                            </span>
-                                            <h4 class="text-sm font-bold text-[#48cae4]">プログラミング班</h4>
-                                        </div>
-                                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                                            制御用マイコン「Arduino」の使い方の基礎学習をスタート。基本構造を理解した上で、サーボモーターの回転方向を切り替えるプログラムの構築に挑戦しました。
-                                        </p>
-                                        
-                                        <!-- Image Container for Programming (NO JAVASCRIPT, 100% PURE HTML DIRECT PATH) -->
-                                        <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] aspect-[4/3] relative">
-                                            <img src="image.png-4721b71b-c159-4f66-b704-17e9a7a8904b" alt="Arduinoプログラミングの学習" class="w-full h-full object-cover">
-                                            <span class="absolute bottom-2 left-2 bg-black/75 text-[10px] text-gray-300 px-2 py-0.5 rounded">Arduino制御の開発風景</span>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-emerald-400 flex items-center">
-                                        <i class="fas fa-check-circle mr-1.5"></i> サーボモーターの回転制御に成功
-                                    </div>
-                                </div>
-
-                                <!-- Hardware Team -->
-                                <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
-                                    <div>
-                                        <div class="flex items-center space-x-2 mb-3">
-                                            <span class="w-6 h-6 rounded bg-[#06d6a0]/20 flex items-center justify-center text-[#06d6a0] text-xs">
-                                                <i class="fas fa-hammer"></i>
-                                            </span>
-                                            <h4 class="text-sm font-bold text-[#06d6a0]">制作班（ハードウェア）</h4>
-                                        </div>
-                                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                                            学校にある部材や端材をフル活用し、最初の車体の試作品を製作。テスト時に車体が横回転してしまう課題が発生しましたが、配線不良を特定し解決しました。
-                                        </p>
-
-                                        <!-- Hardware Image Gallery (3 Images Grid - 100% STATIC DIRECT HTML) -->
-                                        <div class="grid grid-cols-3 gap-2 mb-3">
-                                            <!-- Image 1: Drilling -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] relative">
-                                                <img src="image.png-52577a1f-fc2b-4ed8-8297-48748a48d2e9" alt="車体プレートの穴あけ" class="w-full h-full object-cover">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">穴あけ</span>
-                                            </div>
-                                            
-                                            <!-- Image 2: Wiring -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] relative">
-                                                <img src="image.png-eac75a55-098f-4621-b783-43f5916847c4" alt="配線とはんだ付け作業" class="w-full h-full object-cover">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">配線</span>
-                                            </div>
-
-                                            <!-- Image 3: Assembly -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] relative">
-                                                <img src="image.png-425f9e17-f55d-4cdc-9d20-5c1155f1a017" alt="車輪パーツ切り出し" class="w-full h-full object-cover">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">切り出し</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-amber-400 flex flex-col gap-1">
-                                        <span class="flex items-center text-emerald-400">
-                                            <i class="fas fa-check-circle mr-1.5"></i> モーターの逆回転バグを解決して前進成功
-                                        </span>
-                                        <span class="flex items-center text-emerald-400">
-                                            <i class="fas fa-plus-circle mr-1.5"></i> 安定走行のための前輪を追加
-                                        </span>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <!-- Troubleshooting Focus -->
-                            <div class="mt-5 bg-yellow-500/5 p-3.5 rounded-lg border border-yellow-500/20">
-                                <h4 class="text-xs font-semibold text-yellow-400 uppercase tracking-wider mb-2 flex items-center">
-                                    <i class="fas fa-tools mr-1.5"></i> 試作時のトラブル解決プロセス（制作班）
-                                </h4>
-                                <p class="text-xs text-gray-300 leading-relaxed">
-                                    最初に走らせた際、2基のモーターの極性が逆になっていたため車体がその場で横回転してしまいました。
-                                    <strong>「片方のモーターの2点ある接続部を入れ替える」</strong>ことで、両輪が同じ方向へ正しく回転するようになり、直進走行を達成。さらに旋回や直進を安定させるために<strong>「前輪の追加」</strong>を施しました。
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activity 3 -->
-                    <div class="relative group">
-                        <!-- Timeline Node -->
-                        <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-purple-400 text-purple-400 group-hover:bg-purple-400 group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-purple-400/20">
-                            3
-                        </span>
-                        
-                        <!-- Content Card -->
-                        <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-card transition-all-300">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                                <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-purple-500/10 text-purple-400 self-start">第三回 活動</span>
-                                <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.06.01</span>
-                            </div>
-                            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">必要なものを調べて買うものリストを作成</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                                議論のステップアップとして、学校への予算申請や今後の調達スケジュールを意識しながら、本格的に「買うものリスト」を策定しました。5人で調達先や必要度を綿密に精査し、漏れのない計画を立てることができました。
-                            </p>
-                            
-                            <div class="bg-[#0b132b] p-3.5 rounded-lg border border-[#1c2541]">
-                                <h4 class="text-xs font-semibold text-purple-400 uppercase tracking-wider mb-2">得られた成果 / 決定事項</h4>
-                                <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
-                                    <li>購入申請を迅速に提出するための書類、および各種調達リストの作成を完了</li>
-                                    <li>次の機材到着予定日までの時間を活かして、実験計画書を書き進める役割をアサイン</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activity 2 -->
-                    <div class="relative group">
-                        <!-- Timeline Node -->
-                        <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-[#06d6a0] text-[#06d6a0] group-hover:bg-[#06d6a0] group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-[#06d6a0]/20">
-                            2
-                        </span>
-                        
-                        <!-- Content Card -->
-                        <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-card transition-all-300">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                                <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-[#06d6a0]/10 text-[#06d6a0] self-start">第二回 活動</span>
-                                <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.05.22</span>
-                            </div>
-                            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">仕様の調査と実用性に関する議論</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                                各自が事前に調査してきた機材のスペックや価格、代替品などの情報をホワイトボードに書き出しながら比較・議論しました。高額な専門装置の代わりに学校にある既存の道具を使い、差額を他に回すアイデアなど、5人ならではの多様な解決策が生まれました。
-                            </p>
-                            <!-- Highlighted Outcomes -->
-                            <div class="bg-[#0b132b] p-3.5 rounded-lg border border-[#1c2541]">
-                                <h4 class="text-xs font-semibold text-[#06d6a0] uppercase tracking-wider mb-2">得られた成果 / 決定事項</h4>
-                                <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
-                                    <li>高額な市販機材に代わる、オープンソースのツールや安価な工作パーツを特定</li>
-                                    <li>実現可能なコスト内で研究計画を再度スリム化することに同意</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Activity 1 -->
-                    <div class="relative group">
-                        <!-- Timeline Node -->
-                        <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-[#48cae4] text-[#48cae4] group-hover:bg-[#48cae4] group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-[#48cae4]/20">
-                            1
-                        </span>
-                        
-                        <!-- Content Card -->
-                        <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-card transition-all-300">
-                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
-                                <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-[#48cae4]/10 text-[#48cae4] self-start">第一回 活動</span>
-                                <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.05.15</span>
-                            </div>
-                            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">必要なものを話し合うブレインストーミング</h3>
-                            <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                                5人のメンバー全員で、卒業研究のテーマ実現に向けて「何を用意すべきか」について初めての本格的なディスカッションを行いました。それぞれの異なる視点からアイデアを出し合い、まずは予算や制限を取り払い、自由なブレインストーミングを実施しました。
-                            </p>
-                            <!-- Highlighted Outcomes -->
-                            <div class="bg-[#0b132b] p-3.5 rounded-lg border border-[#1c2541]">
-                                <h4 class="text-xs font-semibold text-[#48cae4] uppercase tracking-wider mb-2">得られた成果 / 決定事項</h4>
-                                <ul class="text-xs text-gray-300 space-y-1.5 list-disc pl-4">
-                                    <li>実験機器候補、分析ソフト、関連する先行文献の必要性を確認</li>
-                                    <li>次回までにそれぞれが興味のある機材の仕様や情報を調べてくるよう役割分担を決定</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-        </section>
-
-        <!-- Project Status Section -->
-        <section id="stats" class="py-16 px-4 md:px-8 border-t border-[#1c2541]">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">現在の進捗状況</h2>
-                    <p class="text-[#48cae4] text-sm mt-2 uppercase tracking-widest">Research Progress</p>
-                </div>
-
-                <div class="bg-[#111a36] p-6 sm:p-8 rounded-xl border border-[#1c2541] glow-border">
-                    <div class="flex justify-between items-center mb-3">
-                        <span class="text-sm font-semibold text-[#48cae4]">計画全体の達成率</span>
-                        <span class="text-xl font-bold text-white font-mono">30%</span>
-                    </div>
-                    <!-- Progress Bar Container -->
-                    <div class="w-full bg-[#0b132b] h-3.5 rounded-full overflow-hidden border border-[#1c2541]">
-                        <div class="bg-gradient-to-r from-[#48cae4] to-[#06d6a0] h-full rounded-full transition-all duration-1000" style="width: 30%"></div>
-                    </div>
-
-                    <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1c2541]/60 text-center">
-                        <div>
-                            <span class="text-xs text-gray-500 block">総ミーティング時間</span>
-                            <span class="text-lg font-bold text-white font-mono">9.5時間</span>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-500 block">現在のフェーズ</span>
-                            <span class="text-sm font-bold text-[#48cae4] block mt-1">プロトタイプ開発</span>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-500 block">次回マイルストーン</span>
-                            <span class="text-xs font-bold text-white block mt-1">実機・制御コードの統合</span>
-                        </div>
-                        <div>
-                            <span class="text-xs text-gray-500 block">共同研究メンバー</span>
-                            <span class="text-lg font-bold text-[#06d6a0] font-mono">5名</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Reflection / Next Step Section -->
-        <section id="reflection" class="py-16 px-4 md:px-8 bg-[#090f20] border-t border-[#1c2541]">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl md:text-3xl font-bold tracking-tight">振り返りと今後の展望</h2>
-                    <p class="text-purple-400 text-sm mt-2 uppercase tracking-widest">Reflection & Next Step</p>
-                </div>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                    <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541]">
-                        <h3 class="text-lg font-bold text-white mb-3 flex items-center">
-                            <span class="w-2 h-2 rounded-full bg-yellow-400 mr-2"></span> これまでの気づき
-                        </h3>
-                        <p class="text-sm text-gray-400 leading-relaxed">
-                            作業を二つに分けたことで効率が爆発的に向上しました。同時に、制作班が直面した「モーター逆回転による横回転」というハードのトラブルに対し、配線をつなぎ替えて前進させ、さらに「前輪を追加」して走りを安定させるなど、自分たちで解決策を考えて実行できたことは、ただ教科書を読む以上の大きな学びとなりました。
-                        </p>
-                    </div>
-
-                    <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541]">
-                        <h3 class="text-lg font-bold text-white mb-3 flex items-center">
-                            <span class="w-2 h-2 rounded-full bg-[#06d6a0] mr-2"></span> 次回のアクション
-                        </h3>
-                        <p class="text-sm text-gray-400 leading-relaxed">
-                            プログラミング班の成果物（サーボモーターの回転制御）と、制作班のプロトタイプ車体をいよいよドッキングさせます。自分たちで組んだプログラムで実際に車体が意図通りに曲がるかどうか、実機を用いた初の動作テストを計画しています。
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer class="bg-[#050914] text-gray-500 py-10 px-4 md:px-8 border-t border-[#1c2541]/40">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
-            <div>
-                <span class="text-sm text-gray-300 font-semibold block mb-1">Graduation Research Portfolio</span>
-                <p class="text-xs">© 2026 High School Graduation Research Project. All rights reserved.</p>
-            </div>
-            <div class="flex items-center space-x-4 text-xs">
-                <span>Created by Project Team Alpha</span>
-                <span class="text-gray-700">|</span>
-                <a href="#about" class="hover:text-white transition-colors">Topへ戻る</a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- JavaScript to toggle mobile menu -->
     <script>
-        const menuBtn = document.getElementById('mobile-menu-btn');
-        const mobileMenu = document.getElementById('mobile-menu');
+        // 設定情報
+        const OWNER = 'あなたのGitHubユーザー名';
+        const REPO = 'リポジトリ名';
+        const PATH = 'ファイル名.txt'; // フォルダ内なら 'folder/file.txt'
+        const TOKEN = 'あなたのGitHub個人アクセストークン'; // ※注意：公開サイトでは隠す必要があります
 
-        menuBtn.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
-        });
+        // GitHub APIのURL
+        const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
 
-        function toggleMenu() {
-            mobileMenu.classList.add('hidden');
+        async function fetchGitHubFile() {
+            try {
+                const response = await fetch(url, {
+                    method: 'GET',
+                    headers: {
+                        // プライベートリポジトリや回数制限対策にトークンが必要な場合のみ以下を有効化
+                        'Authorization': `token ${TOKEN}`, 
+                        'Accept': 'application/vnd.github.v3.raw' // これを指定すると中身をテキストで直接取得できます
+                    }
+                });
+
+                if (!response.ok) {
+                    throw new Error(`エラーが発生しました: ${response.status}`);
+                }
+
+                // テキストとしてパース
+                const data = await response.text();
+                
+                // 画面に表示
+                document.getElementById('content').textContent = data;
+
+            } catch (error) {
+                console.error('読み込み失敗:', error);
+                document.getElementById('content').textContent = 'ファイルの取得に失敗しました。';
+            }
         }
+
+        // ページ読み込み時に実行
+        fetchGitHubFile();
     </script>
 </body>
 </html>
 
-```
