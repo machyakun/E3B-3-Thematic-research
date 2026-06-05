@@ -49,13 +49,27 @@
             transform: translateY(-4px);
             transition: all 0.3s ease;
         }
+        /* Grid blueprint animation background */
+        .blueprint-bg {
+            background-size: 20px 20px;
+            background-image: linear-gradient(to right, rgba(72, 202, 228, 0.04) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(72, 202, 228, 0.04) 1px, transparent 1px);
+        }
+        /* Pulse point animation */
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.4; }
+            50% { transform: scale(1.3); opacity: 0.9; }
+        }
+        .pulse-node {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
         /* Smooth transitions */
         .transition-all-300 {
             transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between blueprint-bg">
 
     <!-- Header Navigation -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0b132b]/80 border-b border-[#1c2541] px-4 py-4 md:px-8">
@@ -286,10 +300,21 @@
                                             制御用マイコン「Arduino」の使い方の基礎学習をスタート。基本構造を理解した上で、サーボモーターの回転方向を切り替えるプログラムの構築に挑戦しました。
                                         </p>
                                         
-                                        <!-- Image Container for Programming (No selector UI, directly loads automatically) -->
+                                        <!-- Image Container 1 (Programming) -->
                                         <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex items-center justify-center">
-                                            <img id="img-slot-1" alt="Arduinoプログラミング" class="w-full h-full object-cover">
-                                            <span class="absolute bottom-2 left-2 bg-black/75 text-[10px] text-gray-300 px-2 py-0.5 rounded">Arduino制御の開発風景</span>
+                                            
+                                            <!-- SVG Blueprint Backing (Will ALWAYS show beautifully) -->
+                                            <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0c132b] to-[#050914] p-4 text-center">
+                                                <svg class="w-16 h-16 text-[#48cae4]/40 mb-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1" d="M9.75 17L9 20l-1 1h8l-1-1-.75-3M3 13h18M5 17h14a2 2 0 002-2V5a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                                                </svg>
+                                                <span class="text-xs font-bold text-[#48cae4]/70 tracking-widest uppercase">Arduino IDE Control</span>
+                                                <span class="text-[9px] text-gray-500 mt-1">PROGRAMMING DEPT LOG</span>
+                                            </div>
+
+                                            <!-- Actual Uploaded Image (Fades in on top once loaded) -->
+                                            <img id="img-slot-1" alt="Arduinoプログラミング" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 z-10" src="">
+                                            <span class="absolute bottom-2 left-2 bg-[#0b132b]/90 border border-[#48cae4]/30 text-[10px] text-gray-300 px-2 py-0.5 rounded z-20 font-mono">CODE: TARGET_01</span>
                                         </div>
                                     </div>
                                     <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-emerald-400 flex items-center">
@@ -310,24 +335,37 @@
                                             学校にある部材や端材をフル活用し、最初の車体の試作品を製作。テスト時に車体が横回転してしまう課題が発生しましたが、配線不良を特定し解決しました。
                                         </p>
 
-                                        <!-- Hardware Image Gallery (3 Images Grid with direct automatic loads) -->
+                                        <!-- Hardware Image Gallery (3 Images Grid with Beautiful Blueprint SVG Backings) -->
                                         <div class="grid grid-cols-3 gap-2 mb-3">
-                                            <!-- Image 1: Drilling -->
+                                            
+                                            <!-- Image 2: Drilling -->
                                             <div class="rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[3/4] relative flex items-center justify-center">
-                                                <img id="img-slot-2" alt="穴あけ加工" class="w-full h-full object-cover">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">穴あけ</span>
+                                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0c132b] to-[#050914] p-1 text-center">
+                                                    <i class="fas fa-crosshairs text-lg text-[#06d6a0]/30 mb-2"></i>
+                                                    <span class="text-[8px] font-bold text-[#06d6a0]/70 uppercase tracking-widest">DRIL</span>
+                                                </div>
+                                                <img id="img-slot-2" alt="穴あけ加工" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 z-10" src="">
+                                                <span class="absolute bottom-1 left-1 bg-black/70 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left z-20">穴あけ</span>
                                             </div>
                                             
-                                            <!-- Image 2: Wiring -->
+                                            <!-- Image 3: Wiring -->
                                             <div class="rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[3/4] relative flex items-center justify-center">
-                                                <img id="img-slot-3" alt="配線接続" class="w-full h-full object-cover">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">配線</span>
+                                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0c132b] to-[#050914] p-1 text-center">
+                                                    <i class="fas fa-project-diagram text-lg text-[#06d6a0]/30 mb-2"></i>
+                                                    <span class="text-[8px] font-bold text-[#06d6a0]/70 uppercase tracking-widest">WIRE</span>
+                                                </div>
+                                                <img id="img-slot-3" alt="配線接続" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 z-10" src="">
+                                                <span class="absolute bottom-1 left-1 bg-black/70 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left z-20">配線</span>
                                             </div>
 
-                                            <!-- Image 3: Assembly -->
+                                            <!-- Image 4: Assembly -->
                                             <div class="rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[3/4] relative flex items-center justify-center">
-                                                <img id="img-slot-4" alt="車輪切り出し" class="w-full h-full object-cover">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">切り出し</span>
+                                                <div class="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-[#0c132b] to-[#050914] p-1 text-center">
+                                                    <i class="fas fa-cubes text-lg text-[#06d6a0]/30 mb-2"></i>
+                                                    <span class="text-[8px] font-bold text-[#06d6a0]/70 uppercase tracking-widest">CHSS</span>
+                                                </div>
+                                                <img id="img-slot-4" alt="車体組み立て" class="absolute inset-0 w-full h-full object-cover opacity-0 transition-opacity duration-500 z-10" src="">
+                                                <span class="absolute bottom-1 left-1 bg-black/70 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left z-20">切り出し</span>
                                             </div>
                                         </div>
                                     </div>
@@ -530,7 +568,7 @@
         </div>
     </footer>
 
-    <!-- JavaScript to toggle mobile menu & load direct environment assets automatically -->
+    <!-- JavaScript to toggle mobile menu & handle secure image loads smoothly -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
@@ -543,38 +581,61 @@
             mobileMenu.classList.add('hidden');
         }
 
-        // 誰がアクセスしても100%直接、その場で自動描画されるようにするためのダイレクトローダー
+        // Failsafe asynchronous image loader with fading transition
         async function loadPortfolioImages() {
-            // あなたの「本物の写真」だけを厳密に直指定
-            const assets = [
-                "image.png-4721b71b-c159-4f66-b704-17e9a7a8904b", // 1. プログラミング
-                "image.png-52577a1f-fc2b-4ed8-8297-48748a48d2e9", // 2. 穴あけ
-                "image.png-eac75a55-098f-4621-b783-43f5916847c4", // 3. 配線
-                "image.png-425f9e17-f55d-4cdc-9d20-5c1155f1a017"  // 4. 切り出し
+            // Your exact code-accessible workspace resource endpoints
+            const imagePaths = [
+                "image.png-4721b71b-c159-4f66-b704-17e9a7a8904b", // slot 1
+                "image.png-52577a1f-fc2b-4ed8-8297-48748a48d2e9", // slot 2
+                "image.png-eac75a55-098f-4621-b783-43f5916847c4", // slot 3
+                "image.png-425f9e17-f55d-4cdc-9d20-5c1155f1a017"  // slot 4
             ];
 
             const slots = ["img-slot-1", "img-slot-2", "img-slot-3", "img-slot-4"];
 
-            for (let i = 0; i < assets.length; i++) {
-                const img = document.getElementById(slots[i]);
-                if (!img) continue;
+            for (let i = 0; i < imagePaths.length; i++) {
+                const imgElement = document.getElementById(slots[i]);
+                if (!imgElement) continue;
 
-                // セキュリティ制限（iframe制限）を超えて誰でも直接写真が見えるよう、ローカルから生バイナリをフェッチ
-                try {
-                    const res = await fetch(`/api/files/${assets[i]}`);
-                    if (!res.ok) throw new Error();
-                    const blob = await res.blob();
-                    img.src = URL.createObjectURL(blob);
-                } catch (e) {
-                    // もしダメならローカル環境用の物理直リンクで再試行
-                    img.src = assets[i];
+                // Create fallbacks to try in sequential order (internal workspace links)
+                const fallbacks = [
+                    `/api/files/${imagePaths[i]}`,
+                    imagePaths[i],
+                    // Standard indexed fallbacks if platform renamed them in workspace
+                    `image.png`,
+                    `image (1).png`,
+                    `image (2).png`,
+                    `image (3).png`
+                ];
+
+                for (let path of fallbacks) {
+                    try {
+                        const response = await fetch(path);
+                        if (response.ok) {
+                            const blob = await response.blob();
+                            const localUrl = URL.createObjectURL(blob);
+                            
+                            // Load smoothly and fade in, overlaying the vector blueprint
+                            imgElement.src = localUrl;
+                            imgElement.onload = () => {
+                                imgElement.classList.remove('opacity-0');
+                                imgElement.classList.add('opacity-100');
+                            };
+                            break; // Successfully loaded, move to next slot
+                        }
+                    } catch (e) {
+                        // Attempt next path fallback
+                    }
                 }
             }
         }
 
-        // 即時ロードを開始
-        loadPortfolioImages();
-        window.addEventListener("DOMContentLoaded", loadPortfolioImages);
+        // Run as soon as document renders or load finishes
+        if (document.readyState === "loading") {
+            document.addEventListener("DOMContentLoaded", loadPortfolioImages);
+        } else {
+            loadPortfolioImages();
+        }
     </script>
 </body>
 </html>
