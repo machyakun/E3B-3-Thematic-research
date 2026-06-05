@@ -2,63 +2,56 @@
 <html lang="ja">
 <head>
     <meta charset="UTF-8">
-    <title>GitHubファイル投稿デモ</title>
+    <title>GitHubファイル表示テスト</title>
     <style>
         body { font-family: sans-serif; padding: 20px; }
-        #content { 
-            white-space: pre-wrap; 
-            background: #f4f4f4; 
+        #content-area { 
+            background: #f5f5f5; 
             padding: 15px; 
             border-radius: 5px; 
+            white-space: pre-wrap; /* 改行を有効にする設定 */
             border: 1px solid #ddd;
         }
     </style>
 </head>
 <body>
 
-    <h2>GitHubから取得したファイル中身</h2>
-    <div id="content">読み込み中...</div>
+    <h2>GitHubから取得したコンテンツ</h2>
+    <div id="content-area">読み込み中...</div>
 
     <script>
-        // 設定情報
-        const OWNER = 'あなたのGitHubユーザー名';
+        // 1. あなたのGitHub情報に書き換えてください
+        const OWNER = 'あなたのユーザー名';
         const REPO = 'リポジトリ名';
-        const PATH = 'ファイル名.txt'; // フォルダ内なら 'folder/file.txt'
-        const TOKEN = 'あなたのGitHub個人アクセストークン'; // ※注意：公開サイトでは隠す必要があります
+        const PATH = 'ファイル名（例: sample.txt）';
 
-        // GitHub APIのURL
+        // GitHub APIのURL（公開リポジトリ用）
         const url = `https://api.github.com/repos/${OWNER}/${REPO}/contents/${PATH}`;
 
         async function fetchGitHubFile() {
             try {
-                const response = await fetch(url, {
-                    method: 'GET',
-                    headers: {
-                        // プライベートリポジトリや回数制限対策にトークンが必要な場合のみ以下を有効化
-                        'Authorization': `token ${TOKEN}`, 
-                        'Accept': 'application/vnd.github.v3.raw' // これを指定すると中身をテキストで直接取得できます
-                    }
-                });
-
+                const response = await fetch(url);
                 if (!response.ok) {
-                    throw new Error(`エラーが発生しました: ${response.status}`);
+                    throw new Error('ファイルの取得に失敗しました。');
                 }
-
-                // テキストとしてパース
-                const data = await response.text();
                 
+                const data = await response.json();
+
+                // APIから取得したデータはBase64という形式でエンコードされているため、デコードする
+                // 日本語の文字化けを防ぐためのデコード処理
+                const decodedContent = decodeURIComponent(escape(atob(data.content)));
+
                 // 画面に表示
-                document.getElementById('content').textContent = data;
+                document.getElementById('content-area').textContent = decodedContent;
 
             } catch (error) {
-                console.error('読み込み失敗:', error);
-                document.getElementById('content').textContent = 'ファイルの取得に失敗しました。';
+                console.error('エラー:', error);
+                document.getElementById('content-area').textContent = 'データの読み込みに失敗しました。';
             }
         }
 
-        // ページ読み込み時に実行
+        // ページが読み込まれたら実行
         fetchGitHubFile();
     </script>
 </body>
 </html>
-
