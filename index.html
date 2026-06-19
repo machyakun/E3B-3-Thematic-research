@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>卒業研究 ポートフォリオ | Graduation Research Portfolio</title>
-    <!-- Tailwind CSS (Modern utility-first CSS framework) -->
+    <!-- Tailwind CSS (for highly responsive premium utility classes) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome (Stylish icons) -->
+    <!-- Font Awesome (for tech/mechanical icons) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -255,6 +255,76 @@
                 <!-- Timeline Container -->
                 <div class="relative border-l border-[#1c2541] ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
                     
+                    <!-- Activity 5 -->
+                    <div class="relative group">
+                        <!-- Timeline Node -->
+                        <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-emerald-400 text-emerald-400 group-hover:bg-emerald-400 group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-emerald-400/20">
+                            5
+                        </span>
+                        
+                        <!-- Content Card -->
+                        <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-card transition-all-300">
+                            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+                                <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-500/10 text-emerald-400 self-start">第五回 活動</span>
+                                <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.06.12</span>
+                            </div>
+                            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">二つの班に分かれて作業の続き</h3>
+                            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+                                今回は前回に引き続き、「プログラミング班」と「制作班（ハードウェア）」の2チームに分かれてそれぞれの課題解決に当たりました。ハードウェアの実用化が進む一方、電子制御で新たな課題に直面するなど、実践的な探究が進んでいます。
+                            </p>
+                            
+                            <!-- Team Split Grid -->
+                            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                                <!-- Programming Team -->
+                                <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center space-x-2 mb-3">
+                                            <span class="w-6 h-6 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 text-xs">
+                                                <i class="fas fa-satellite-dish"></i>
+                                            </span>
+                                            <h4 class="text-sm font-bold text-purple-400">プログラミング班</h4>
+                                        </div>
+                                        <p class="text-xs text-gray-300 leading-relaxed mb-3">
+                                            前回に引き続き、Arduinoの応用学習として、車体の動きを検出するための「加速度センサー」の接続を試みました。しかし、配線の接触不良、またはI2C通信アドレスの設定ミスが原因か、今回はデータの取得に成功しませんでした。
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-yellow-400 flex items-center font-semibold">
+                                        <i class="fas fa-exclamation-triangle mr-1.5"></i> 加速度センサーの接続に苦戦（次回再挑戦）
+                                    </div>
+                                </div>
+
+                                <!-- Hardware Team -->
+                                <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
+                                    <div>
+                                        <div class="flex items-center space-x-2 mb-3">
+                                            <span class="w-6 h-6 rounded bg-[#06d6a0]/20 flex items-center justify-center text-[#06d6a0] text-xs">
+                                                <i class="fas fa-gamepad"></i>
+                                            </span>
+                                            <h4 class="text-sm font-bold text-[#06d6a0]">制作班（ハードウェア）</h4>
+                                        </div>
+                                        <p class="text-xs text-gray-300 leading-relaxed mb-3">
+                                            前回組み立てた車体を自在に曲がれるようにするため、学校にあった廃材やパーツを活用して自作のリモコンを作成しました。トグルスイッチを2基配線し、左右のタイヤへ送る電力を独立して切り替える物理回路を組み上げました。
+                                        </p>
+                                    </div>
+                                    <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-[#06d6a0] flex items-center font-semibold">
+                                        <i class="fas fa-check-circle mr-1.5"></i> トグルスイッチ式自作リモコンの動作成功
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Mechanical Success Focus -->
+                            <div class="mt-5 bg-gradient-to-r from-emerald-500/5 to-teal-500/5 p-4 rounded-lg border border-emerald-500/20">
+                                <h4 class="text-xs font-semibold text-[#06d6a0] uppercase tracking-wider mb-2 flex items-center">
+                                    <i class="fas fa-sync mr-1.5"></i> 操縦技術の確立：独立2輪駆動による旋回制御
+                                </h4>
+                                <p class="text-xs text-gray-300 leading-relaxed">
+                                    制作班が構築したリモコンは、2つのトグルスイッチがそれぞれの左右のモーターに1対1で対応しています。
+                                    <strong>「片方のスイッチのみを押すと、片側のモーターだけが駆動する」</strong>という仕組みにより、キャスター（前輪）がピボットとなって車体がその場で円を描くように美しく旋回できるようになりました。これにより、直進しかできなかった車体が、リモコン操作で曲がれる高度なプロトタイプへと進化しました。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Activity 4 -->
                     <div class="relative group">
                         <!-- Timeline Node -->
@@ -288,9 +358,16 @@
                                             制御用マイコン「Arduino」の使い方の基礎学習をスタート。基本構造を理解した上で、サーボモーターの回転方向を切り替えるプログラムの構築に挑戦しました。
                                         </p>
                                         
-                                        <!-- Programming Image (Relative path for GitHub) -->
-                                        <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] aspect-[4/3] relative">
-                                            <img src="programming.jpg" alt="Arduinoプログラミングの学習" class="w-full h-full object-cover">
+                                        <!-- Programming Image with Fail-safe Hybrid URL -->
+                                        <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] aspect-[4/3] bg-[#050914] relative">
+                                            <!--
+                                              Canvas環境：API経由で画像「image.png-f74a4460-b32a-4273-944a-6903971cec06」を表示。
+                                              GitHub公開環境：もしAPIパスがエラーになった場合、自動的にローカルフォルダの「programming.png」に差し替わります。
+                                            -->
+                                            <img src="/api/files/image.png-f74a4460-b32a-4273-944a-6903971cec06" 
+                                                 alt="Arduinoプログラミングの学習" 
+                                                 class="w-full h-full object-cover"
+                                                 onerror="this.onerror=null; this.src='programming.png';">
                                             <span class="absolute bottom-2 left-2 bg-black/75 text-[10px] text-gray-300 px-2 py-0.5 rounded">Arduino制御の開発風景</span>
                                         </div>
                                     </div>
@@ -312,23 +389,32 @@
                                             学校にある部材や端材をフル活用し、最初の車体の試作品を製作。テスト時に車体が横回転してしまう課題が発生しましたが、配線不良を特定し解決しました。
                                         </p>
 
-                                        <!-- Hardware Image Gallery (Relative paths for GitHub) -->
+                                        <!-- Hardware Image Gallery with Fail-safe Hybrid URLs -->
                                         <div class="grid grid-cols-3 gap-2 mb-3">
                                             <!-- Image 1: Drilling -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] relative">
-                                                <img src="drilling.jpg" alt="車体プレートの穴あけ" class="w-full h-full object-cover">
+                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] bg-[#050914] relative">
+                                                <img src="/api/files/image.png-4946e73b-d2eb-487b-96a5-d63ea7f1a459" 
+                                                     alt="車体プレートの穴あけ" 
+                                                     class="w-full h-full object-cover"
+                                                     onerror="this.onerror=null; this.src='drilling.png';">
                                                 <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">穴あけ</span>
                                             </div>
                                             
                                             <!-- Image 2: Wiring -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] relative">
-                                                <img src="wiring.jpg" alt="配線とはんだ付け作業" class="w-full h-full object-cover">
+                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] bg-[#050914] relative">
+                                                <img src="/api/files/image.png-18c31ccf-2d84-4ad9-917f-d065cc91baf0" 
+                                                     alt="配線とはんだ付け作業" 
+                                                     class="w-full h-full object-cover"
+                                                     onerror="this.onerror=null; this.src='wiring.png';">
                                                 <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">配線</span>
                                             </div>
 
                                             <!-- Image 3: Assembly -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] relative">
-                                                <img src="assembly.jpg" alt="車輪パーツ切り出し" class="w-full h-full object-cover">
+                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] bg-[#050914] relative">
+                                                <img src="/api/files/image.png-03bfe325-6272-45f5-a325-678e32022777" 
+                                                     alt="車輪パーツ切り出し" 
+                                                     class="w-full h-full object-cover"
+                                                     onerror="this.onerror=null; this.src='assembly.png';">
                                                 <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">切り出し</span>
                                             </div>
                                         </div>
@@ -456,25 +542,25 @@
                 <div class="bg-[#111a36] p-6 sm:p-8 rounded-xl border border-[#1c2541] glow-border">
                     <div class="flex justify-between items-center mb-3">
                         <span class="text-sm font-semibold text-[#48cae4]">計画全体の達成率</span>
-                        <span class="text-xl font-bold text-white font-mono">30%</span>
+                        <span class="text-xl font-bold text-white font-mono">45%</span>
                     </div>
                     <!-- Progress Bar Container -->
                     <div class="w-full bg-[#0b132b] h-3.5 rounded-full overflow-hidden border border-[#1c2541]">
-                        <div class="bg-gradient-to-r from-[#48cae4] to-[#06d6a0] h-full rounded-full transition-all duration-1000" style="width: 30%"></div>
+                        <div class="bg-gradient-to-r from-[#48cae4] to-[#06d6a0] h-full rounded-full transition-all duration-1000" style="width: 45%"></div>
                     </div>
 
                     <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1c2541]/60 text-center">
                         <div>
                             <span class="text-xs text-gray-500 block">総ミーティング時間</span>
-                            <span class="text-lg font-bold text-white font-mono">9.5時間</span>
+                            <span class="text-lg font-bold text-white font-mono">12.5時間</span>
                         </div>
                         <div>
                             <span class="text-xs text-gray-500 block">現在のフェーズ</span>
-                            <span class="text-sm font-bold text-[#48cae4] block mt-1">プロトタイプ開発</span>
+                            <span class="text-sm font-bold text-[#48cae4] block mt-1">プロトタイプ制御・センサー検証</span>
                         </div>
                         <div>
                             <span class="text-xs text-gray-500 block">次回マイルストーン</span>
-                            <span class="text-xs font-bold text-white block mt-1">実機・制御コードの統合</span>
+                            <span class="text-xs font-bold text-white block mt-1">加速度センサー統合・操縦テスト</span>
                         </div>
                         <div>
                             <span class="text-xs text-gray-500 block">共同研究メンバー</span>
