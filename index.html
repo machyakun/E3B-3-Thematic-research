@@ -5,9 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>卒業研究 ポートフォリオ | Graduation Research Portfolio</title>
-    <!-- Tailwind CSS (for highly responsive premium utility classes) -->
+    <!-- Tailwind CSS (レスポンシブなUIユーティリティクラス) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Font Awesome (for tech/mechanical icons) -->
+    <!-- Font Awesome (アイコンライブラリ) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +21,7 @@
             color: #f4f4f9;
             scroll-behavior: smooth;
         }
-        /* Custom scrollbar */
+        /* カスタムスクロールバー */
         ::-webkit-scrollbar {
             width: 8px;
         }
@@ -35,7 +35,7 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #48cae4;
         }
-        /* Glowing effects */
+        /* 発光エフェクト */
         .glow-text {
             text-shadow: 0 0 10px rgba(72, 202, 228, 0.5);
         }
@@ -49,29 +49,51 @@
             transform: translateY(-4px);
             transition: all 0.3s ease;
         }
-        /* Smooth transitions */
+        /* グリッド背景 */
+        .blueprint-bg {
+            background-size: 24px 24px;
+            background-image: linear-gradient(to right, rgba(72, 202, 228, 0.03) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(72, 202, 228, 0.03) 1px, transparent 1px);
+        }
+        /* パルス（点滅）アニメーション */
+        @keyframes pulse-glow {
+            0%, 100% { transform: scale(1); opacity: 0.3; }
+            50% { transform: scale(1.2); opacity: 0.8; }
+        }
+        .pulse-node {
+            animation: pulse-glow 2s infinite ease-in-out;
+        }
+        /* センサー波形アニメーション */
+        @keyframes waveMove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-40px); }
+        }
+        .wave-animate {
+            animation: waveMove 4s infinite linear;
+        }
+        /* スムーズな遷移 */
         .transition-all-300 {
             transition: all 0.3s ease;
         }
     </style>
 </head>
-<body class="min-h-screen flex flex-col justify-between">
+<body class="min-h-screen flex flex-col justify-between blueprint-bg">
 
-    <!-- Header Navigation -->
+    <!-- ヘッダーナビゲーション -->
     <header class="sticky top-0 z-50 backdrop-blur-md bg-[#0b132b]/80 border-b border-[#1c2541] px-4 py-4 md:px-8">
         <div class="max-w-7xl mx-auto flex justify-between items-center">
-            <!-- Logo / Title -->
+            <!-- ロゴ / タイトル -->
             <a href="#" class="flex items-center space-x-3 group">
                 <div class="w-10 h-10 rounded-lg bg-gradient-to-tr from-[#48cae4] to-[#06d6a0] flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-[#48cae4]/20">
-                    P
+                    探
                 </div>
                 <div>
-                    <span class="text-xs text-[#48cae4] font-semibold tracking-wider block uppercase">Graduation Research</span>
-                    <span class="text-base md:text-lg font-bold tracking-tight group-hover:text-[#48cae4] transition-colors duration-200">PORTFOLIO</span>
+                    <span class="text-xs text-[#48cae4] font-semibold tracking-wider block uppercase">2026年度 卒業研究</span>
+                    <span class="text-base md:text-lg font-bold tracking-tight group-hover:text-[#48cae4] transition-colors duration-200">ポートフォリオ</span>
                 </div>
             </a>
 
-            <!-- Desktop Nav Links -->
+            <!-- デスクトップ用ナビゲーション -->
             <nav class="hidden md:flex items-center space-x-8 text-sm font-medium">
                 <a href="#about" class="hover:text-[#48cae4] transition-colors duration-200">研究概要</a>
                 <a href="#team" class="hover:text-[#48cae4] transition-colors duration-200">メンバー</a>
@@ -80,20 +102,20 @@
                 <a href="#reflection" class="hover:text-[#48cae4] transition-colors duration-200">展望</a>
             </nav>
 
-            <!-- Quick Action Button -->
+            <!-- クイックアクションボタン -->
             <div class="hidden sm:block">
                 <a href="#timeline" class="px-5 py-2 rounded-full text-xs font-semibold bg-[#1c2541] hover:bg-[#2a3a5f] border border-[#48cae4]/30 hover:border-[#48cae4] text-[#48cae4] hover:text-white transition-all-300 shadow-sm shadow-[#48cae4]/10">
                     活動記録を見る <i class="fas fa-arrow-down ml-1"></i>
                 </a>
             </div>
 
-            <!-- Mobile Menu Toggle Button -->
+            <!-- モバイルメニュー切り替えボタン -->
             <button id="mobile-menu-btn" class="md:hidden p-2 text-gray-400 hover:text-white focus:outline-none">
                 <i class="fas fa-bars text-xl"></i>
             </button>
         </div>
 
-        <!-- Mobile Nav Menu (Hidden by default) -->
+        <!-- モバイル用ナビゲーションメニュー -->
         <div id="mobile-menu" class="hidden md:hidden mt-4 pt-4 border-t border-[#1c2541] flex flex-col space-y-4 px-2">
             <a href="#about" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">研究概要</a>
             <a href="#team" class="text-gray-300 hover:text-[#48cae4] py-2 text-sm font-medium" onclick="toggleMenu()">メンバー</a>
@@ -103,10 +125,10 @@
         </div>
     </header>
 
-    <!-- Main Content -->
+    <!-- メインコンテンツ -->
     <main class="flex-grow">
         
-        <!-- Hero Section -->
+        <!-- ヒーローセクション -->
         <section class="relative py-20 px-4 md:px-8 overflow-hidden bg-gradient-to-b from-[#0b132b] via-[#111a36] to-[#0b132b]">
             <div class="absolute top-20 right-10 w-72 h-72 bg-[#48cae4]/10 rounded-full blur-3xl pointer-events-none"></div>
             <div class="absolute bottom-10 left-10 w-96 h-96 bg-[#06d6a0]/5 rounded-full blur-3xl pointer-events-none"></div>
@@ -120,7 +142,7 @@
                     <span class="bg-gradient-to-r from-[#48cae4] via-[#00b4d8] to-[#06d6a0] bg-clip-text text-transparent glow-text">探究と創造のポートフォリオ</span>
                 </h1>
                 <p class="text-gray-400 text-base md:text-lg max-w-2xl mx-auto mb-10 leading-relaxed">
-                    本サイトは、高校生活の集大成として5人のメンバーで取り組む「課題研究」のプロセス、仮説検証、そこで得られた気付きをリアルタイムに記録・発信するデジタルポートフォリオです。
+                    本ポートフォリオは、高校生活の集大成として5人のメンバーで取り組む「課題研究」のプロセス、仮説検証、そこで得られた気付きをリアルタイムに記録・発信するデジタルノートです。
                 </p>
                 
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
@@ -134,16 +156,16 @@
             </div>
         </section>
 
-        <!-- Research Overview (About) Section -->
+        <!-- 研究概要セクション -->
         <section id="about" class="py-16 px-4 md:px-8 border-t border-[#1c2541]">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-2xl md:text-3xl font-bold tracking-tight">研究の紹介</h2>
-                    <p class="text-[#48cae4] text-sm mt-2 uppercase tracking-widest">Research Overview</p>
+                    <p class="text-[#48cae4] text-sm mt-2 uppercase tracking-widest">研究概要</p>
                 </div>
 
                 <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-                    <!-- Theme Card -->
+                    <!-- テーマカード -->
                     <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-border transition-all duration-300">
                         <div class="w-12 h-12 rounded-lg bg-[#48cae4]/10 flex items-center justify-center text-[#48cae4] mb-5">
                             <i class="fas fa-lightbulb text-xl"></i>
@@ -154,7 +176,7 @@
                         </p>
                     </div>
 
-                    <!-- Target Card -->
+                    <!-- ターゲットカード -->
                     <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-border transition-all duration-300">
                         <div class="w-12 h-12 rounded-lg bg-[#06d6a0]/10 flex items-center justify-center text-[#06d6a0] mb-5">
                             <i class="fas fa-bullseye text-xl"></i>
@@ -165,7 +187,7 @@
                         </p>
                     </div>
 
-                    <!-- Method Card -->
+                    <!-- 手法カード -->
                     <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-border transition-all duration-300">
                         <div class="w-12 h-12 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400 mb-5">
                             <i class="fas fa-flask text-xl"></i>
@@ -179,18 +201,17 @@
             </div>
         </section>
 
-        <!-- Team Members Section -->
+        <!-- メンバー紹介セクション -->
         <section id="team" class="py-16 px-4 md:px-8 bg-[#090f20] border-t border-[#1c2541]">
             <div class="max-w-6xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-2xl md:text-3xl font-bold tracking-tight">研究メンバー</h2>
-                    <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">Team Members</p>
+                    <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">チームメンバー</p>
                 </div>
 
-                <!-- 5 Members Grid -->
+                <!-- 5名グリッド -->
                 <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
-                    
-                    <!-- Member 1 -->
+                    <!-- メンバー 1 -->
                     <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-[#48cae4]/50">
                         <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-[#48cae4] to-[#00b4d8] flex items-center justify-center text-white mb-4 shadow-lg shadow-[#48cae4]/10">
                             <i class="fas fa-user-tie text-xl"></i>
@@ -200,7 +221,7 @@
                         <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">全体のスケジュール管理とプレゼン資料作成を統括します。</p>
                     </div>
 
-                    <!-- Member 2 -->
+                    <!-- メンバー 2 -->
                     <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-[#06d6a0]/50">
                         <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-[#06d6a0] to-[#00b4d8] flex items-center justify-center text-white mb-4 shadow-lg shadow-[#06d6a0]/10">
                             <i class="fas fa-search text-xl"></i>
@@ -210,7 +231,7 @@
                         <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">先行研究の調査、分析や検証実験を担当します。</p>
                     </div>
 
-                    <!-- Member 3 -->
+                    <!-- メンバー 3 -->
                     <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-purple-400/50">
                         <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-purple-500 to-indigo-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-purple-500/10">
                             <i class="fas fa-pen-nib text-xl"></i>
@@ -220,7 +241,7 @@
                         <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">Arduinoやサーボモーターなどのマイコン制御・開発を担当します。</p>
                     </div>
 
-                    <!-- Member 4 -->
+                    <!-- メンバー 4 -->
                     <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-pink-400/50">
                         <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-pink-500 to-rose-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-pink-500/10">
                             <i class="fas fa-tools text-xl"></i>
@@ -230,7 +251,7 @@
                         <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">車体フレームの設計、試作、メカ的な組み立てを担当します。</p>
                     </div>
 
-                    <!-- Member 5 -->
+                    <!-- メンバー 5 -->
                     <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-yellow-400/50">
                         <div class="w-14 h-14 mx-auto rounded-full bg-gradient-to-tr from-yellow-500 to-amber-500 flex items-center justify-center text-white mb-4 shadow-lg shadow-yellow-500/10">
                             <i class="fas fa-comments text-xl"></i>
@@ -239,30 +260,29 @@
                         <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-yellow-500/10 text-yellow-400">広報・プレゼンテーター</span>
                         <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">外部発表時の資料構成や、研究の対外アピールを担当します。</p>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Activities Timeline Section -->
+        <!-- 活動タイムラインセクション -->
         <section id="timeline" class="py-20 px-4 md:px-8 border-t border-[#1c2541]">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-16">
                     <h2 class="text-2xl md:text-3xl font-bold tracking-tight">活動ドキュメント</h2>
-                    <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">Activity Logs</p>
+                    <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">活動記録</p>
                 </div>
 
-                <!-- Timeline Container -->
+                <!-- タイムラインの親要素 -->
                 <div class="relative border-l border-[#1c2541] ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
                     
-                    <!-- Activity 5 -->
+                    <!-- 第5回活動 -->
                     <div class="relative group">
-                        <!-- Timeline Node -->
+                        <!-- タイムラインのノード（丸） -->
                         <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-emerald-400 text-emerald-400 group-hover:bg-emerald-400 group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-emerald-400/20">
                             5
                         </span>
                         
-                        <!-- Content Card -->
+                        <!-- コンテンツカード -->
                         <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541] glow-card transition-all-300">
                             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
                                 <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-emerald-500/10 text-emerald-400 self-start">第五回 活動</span>
@@ -273,27 +293,41 @@
                                 今回は前回に引き続き、「プログラミング班」と「制作班（ハードウェア）」の2チームに分かれてそれぞれの課題解決に当たりました。ハードウェアの実用化が進む一方、電子制御で新たな課題に直面するなど、実践的な探究が進んでいます。
                             </p>
                             
-                            <!-- Team Split Grid -->
+                            <!-- チーム分けグリッド（第5回） -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                                <!-- Programming Team -->
+                                <!-- プログラミング班 -->
                                 <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center space-x-2 mb-3">
                                             <span class="w-6 h-6 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 text-xs">
-                                                <i class="fas fa-satellite-dish"></i>
+                                                <i class="fas fa-wave-square"></i>
                                             </span>
                                             <h4 class="text-sm font-bold text-purple-400">プログラミング班</h4>
                                         </div>
-                                        <p class="text-xs text-gray-300 leading-relaxed mb-3">
+                                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
                                             前回に引き続き、Arduinoの応用学習として、車体の動きを検出するための「加速度センサー」の接続を試みました。しかし、配線の接触不良、またはI2C通信アドレスの設定ミスが原因か、今回はデータの取得に成功しませんでした。
                                         </p>
+
+                                        <!-- 加速度センサーのSVGアニメーション -->
+                                        <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
+                                            <div class="absolute inset-0 opacity-20 blueprint-bg"></div>
+                                            <!-- アニメーション付き波形 -->
+                                            <svg class="w-2/3 h-16 text-purple-400" viewBox="0 0 100 30" fill="none" stroke="currentColor" stroke-width="1.5">
+                                                <path class="wave-animate" d="M0,15 Q10,2 20,15 T40,15 T60,15 T80,15 T100,15 T120,15" stroke-dasharray="1 1" />
+                                                <path d="M0,15 Q10,25 20,15 T40,15 T60,15 T80,15 T100,15" stroke="currentColor" stroke-width="1" />
+                                                <!-- エラー点滅表示 -->
+                                                <circle cx="50" cy="15" r="2" fill="#ff0055" class="pulse-node" />
+                                            </svg>
+                                            <span class="text-[9px] font-bold text-purple-400 tracking-wider uppercase mt-2 z-10">加速度センサー 未接続</span>
+                                            <span class="text-[8px] text-gray-500 z-10 font-mono">エラーコード: 0xEF (再試行中...)</span>
+                                        </div>
                                     </div>
                                     <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-yellow-400 flex items-center font-semibold">
                                         <i class="fas fa-exclamation-triangle mr-1.5"></i> 加速度センサーの接続に苦戦（次回再挑戦）
                                     </div>
                                 </div>
 
-                                <!-- Hardware Team -->
+                                <!-- 制作班 (自作リモコン開発工程4ステップ) -->
                                 <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center space-x-2 mb-3">
@@ -302,9 +336,66 @@
                                             </span>
                                             <h4 class="text-sm font-bold text-[#06d6a0]">制作班（ハードウェア）</h4>
                                         </div>
-                                        <p class="text-xs text-gray-300 leading-relaxed mb-3">
-                                            前回組み立てた車体を自在に曲がれるようにするため、学校にあった廃材やパーツを活用して自作のリモコンを作成しました。トグルスイッチを2基配線し、左右のタイヤへ送る電力を独立して切り替える物理回路を組み上げました。
+                                        <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                                            車体を自在に曲げるための操縦器（リモコン）を、学校にあるトグルスイッチや廃材パーツを活用して自作しました。4つの確実なステップを踏んで、実用的な回路筐体を完成させました。
                                         </p>
+
+                                        <!-- 自作リモコン開発工程の4ステップ・サイバーグリッド -->
+                                        <div class="grid grid-cols-2 gap-2 mb-3">
+                                            <!-- Step 1: 旋回設計 -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <circle cx="10" cy="10" r="7" stroke-dasharray="2 1" />
+                                                    <path d="M 10 3 A 7 7 0 0 1 17 10" stroke-width="1.5" stroke="#06d6a0" />
+                                                    <polygon points="17,10 15,8 19,8" fill="#06d6a0" />
+                                                    <text x="10" y="12" font-size="6" fill="#06d6a0" font-weight="bold" text-anchor="middle" font-family="sans-serif">?</text>
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">① 旋回方法検討</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">作戦と設計議論</span>
+                                            </div>
+
+                                            <!-- Step 2: 回路配線 -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <path d="M 3 10 L 8 10 L 10 5 L 12 15 L 14 10 L 17 10" stroke-width="1.2" />
+                                                    <circle cx="8" cy="10" r="1" fill="#06d6a0" />
+                                                    <circle cx="14" cy="10" r="1" fill="#06d6a0" />
+                                                    <circle cx="10" cy="5" r="1.5" class="pulse-node" fill="#06d6a0" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">② スイッチ配線</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">左右モーター独立</span>
+                                            </div>
+
+                                            <!-- Step 3: 筐体穴あけ -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <rect x="5" y="4" width="10" height="12" rx="2" stroke-dasharray="2 2" />
+                                                    <circle cx="10" cy="8" r="2.5" />
+                                                    <circle cx="10" cy="8" r="1" class="pulse-node" fill="#06d6a0" />
+                                                    <path d="M 6 14 L 14 14" stroke-opacity="0.4" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">③ リモコン穴あけ</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">スイッチ固定孔</span>
+                                            </div>
+
+                                            <!-- Step 4: 最終合体 -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <rect x="3" y="6" width="14" height="8" rx="2" />
+                                                    <!-- Switches mounted -->
+                                                    <line x1="7" y1="6" x2="5" y2="2" stroke-width="2" />
+                                                    <line x1="13" y1="6" x2="15" y2="2" stroke-width="2" />
+                                                    <circle cx="7" cy="6" r="1" fill="#06d6a0" />
+                                                    <circle cx="13" cy="6" r="1" fill="#06d6a0" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">④ 筐体＆回路合体</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">リモコン完成・結合</span>
+                                            </div>
+                                        </div>
                                     </div>
                                     <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-[#06d6a0] flex items-center font-semibold">
                                         <i class="fas fa-check-circle mr-1.5"></i> トグルスイッチ式自作リモコンの動作成功
@@ -343,7 +434,7 @@
                                 今回から、研究をよりスピーディーに進めるために「プログラミング班」と「制作班（ハードウェア）」の2チームに分かれて同時並行で作業をスタートさせました。
                             </p>
                             
-                            <!-- Team Split Grid -->
+                            <!-- Team Split Grid (Activity 4) -->
                             <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                                 <!-- Programming Team -->
                                 <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
@@ -358,17 +449,31 @@
                                             制御用マイコン「Arduino」の使い方の基礎学習をスタート。基本構造を理解した上で、サーボモーターの回転方向を切り替えるプログラムの構築に挑戦しました。
                                         </p>
                                         
-                                        <!-- Programming Image with Fail-safe Hybrid URL -->
-                                        <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] aspect-[4/3] bg-[#050914] relative">
-                                            <!--
-                                              Canvas環境：API経由で画像「image.png-f74a4460-b32a-4273-944a-6903971cec06」を表示。
-                                              GitHub公開環境：もしAPIパスがエラーになった場合、自動的にローカルフォルダの「programming.png」に差し替わります。
-                                            -->
-                                            <img src="/api/files/image.png-f74a4460-b32a-4273-944a-6903971cec06" 
-                                                 alt="Arduinoプログラミングの学習" 
-                                                 class="w-full h-full object-cover"
-                                                 onerror="this.onerror=null; this.src='programming.png';">
-                                            <span class="absolute bottom-2 left-2 bg-black/75 text-[10px] text-gray-300 px-2 py-0.5 rounded">Arduino制御の開発風景</span>
+                                        <!-- プログラミング基礎の回路設計図（SVGアニメーション形式） -->
+                                        <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
+                                            <div class="absolute inset-0 opacity-15 blueprint-bg"></div>
+                                            <!-- Arduinoマイコンとプログラム回路図を連想させるSVG -->
+                                            <svg class="w-2/3 h-20 text-[#48cae4]" viewBox="0 0 100 50" fill="none" stroke="currentColor" stroke-width="1">
+                                                <!-- Arduino Board Outline -->
+                                                <rect x="15" y="5" width="70" height="40" rx="4" stroke-dasharray="2 2" />
+                                                <!-- Microcontroller Chip -->
+                                                <rect x="22" y="15" width="22" height="20" rx="1" stroke-opacity="0.6" />
+                                                <!-- TX/RX LEDs -->
+                                                <circle cx="28" cy="21" r="1.5" class="pulse-node" fill="currentColor" fill-opacity="0.8" />
+                                                <circle cx="28" cy="29" r="1.5" class="pulse-node" fill="currentColor" fill-opacity="0.8" />
+                                                <!-- Microcontroller Pins -->
+                                                <line x1="15" y1="12" x2="22" y2="12" stroke-opacity="0.5" />
+                                                <line x1="15" y1="20" x2="22" y2="20" stroke-opacity="0.5" />
+                                                <line x1="15" y1="28" x2="22" y2="28" stroke-opacity="0.5" />
+                                                <line x1="15" y1="36" x2="22" y2="36" stroke-opacity="0.5" />
+                                                <!-- Simplified Code Block Schema -->
+                                                <path d="M 52 14 L 75 14" stroke-width="1.5" stroke-opacity="0.8" />
+                                                <path d="M 52 22 L 68 22" stroke-width="1.5" stroke-opacity="0.8" />
+                                                <path d="M 52 30 L 80 30" stroke-width="1.5" stroke-opacity="0.8" />
+                                                <path d="M 52 38 L 62 38" stroke-width="1.5" stroke-opacity="0.8" />
+                                            </svg>
+                                            <span class="text-[9px] font-bold text-[#48cae4] tracking-wider uppercase mt-1 z-10">Arduinoマイコン＆コード設計図</span>
+                                            <span class="text-[8px] text-gray-500 z-10 font-mono">制御信号出力: ピン13 (サーボ制御)</span>
                                         </div>
                                     </div>
                                     <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-emerald-400 flex items-center">
@@ -376,46 +481,69 @@
                                     </div>
                                 </div>
 
-                                <!-- Hardware Team -->
+                                <!-- Hardware Team (自作車体開発工程4ステップ) -->
                                 <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
                                     <div>
                                         <div class="flex items-center space-x-2 mb-3">
                                             <span class="w-6 h-6 rounded bg-[#06d6a0]/20 flex items-center justify-center text-[#06d6a0] text-xs">
-                                                <i class="fas fa-hammer"></i>
+                                                <i class="fas fa-tools"></i>
                                             </span>
                                             <h4 class="text-sm font-bold text-[#06d6a0]">制作班（ハードウェア）</h4>
                                         </div>
                                         <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                                            学校にある部材や端材をフル活用し、最初の車体の試作品を製作。テスト時に車体が横回転してしまう課題が発生しましたが、配線不良を特定し解決しました。
+                                            学校にある部材や端材をフル活用し、最初の車体の試作品を製作。4つの確実な開発プロセスを経て、直進走行が可能な駆動システムを作り上げました。
                                         </p>
 
-                                        <!-- Hardware Image Gallery with Fail-safe Hybrid URLs -->
-                                        <div class="grid grid-cols-3 gap-2 mb-3">
-                                            <!-- Image 1: Drilling -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] bg-[#050914] relative">
-                                                <img src="/api/files/image.png-4946e73b-d2eb-487b-96a5-d63ea7f1a459" 
-                                                     alt="車体プレートの穴あけ" 
-                                                     class="w-full h-full object-cover"
-                                                     onerror="this.onerror=null; this.src='drilling.png';">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">穴あけ</span>
-                                            </div>
-                                            
-                                            <!-- Image 2: Wiring -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] bg-[#050914] relative">
-                                                <img src="/api/files/image.png-18c31ccf-2d84-4ad9-917f-d065cc91baf0" 
-                                                     alt="配線とはんだ付け作業" 
-                                                     class="w-full h-full object-cover"
-                                                     onerror="this.onerror=null; this.src='wiring.png';">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">配線</span>
+                                        <!-- 4日目制作班の4ステップ・サイバーグリッド -->
+                                        <div class="grid grid-cols-2 gap-2 mb-3">
+                                            <!-- Step 1: 部品・資材調達 -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <rect x="4" y="6" width="12" height="10" rx="1" />
+                                                    <line x1="8" y1="6" x2="8" y2="16" />
+                                                    <line x1="12" y1="6" x2="12" y2="16" />
+                                                    <circle cx="10" cy="11" r="2" stroke-dasharray="1 1" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">① 部品・資材調達</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">学校端材・ギアボックス選定</span>
                                             </div>
 
-                                            <!-- Image 3: Assembly -->
-                                            <div class="rounded-lg overflow-hidden border border-[#1c2541] aspect-[3/4] bg-[#050914] relative">
-                                                <img src="/api/files/image.png-03bfe325-6272-45f5-a325-678e32022777" 
-                                                     alt="車輪パーツ切り出し" 
-                                                     class="w-full h-full object-cover"
-                                                     onerror="this.onerror=null; this.src='assembly.png';">
-                                                <span class="absolute bottom-1 left-1 bg-black/75 text-[8px] text-gray-300 px-1 py-0.5 rounded scale-90 origin-bottom-left">切り出し</span>
+                                            <!-- Step 2: シャーシ穴あけ -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <circle cx="10" cy="10" r="7" stroke-dasharray="2 2" />
+                                                    <line x1="10" y1="2" x2="10" y2="18" />
+                                                    <line x1="2" y1="10" x2="18" y2="10" />
+                                                    <circle cx="10" cy="10" r="1.5" class="pulse-node" fill="#06d6a0" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">② シャーシ穴あけ</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">車体ベース板の精密加工</span>
+                                            </div>
+
+                                            <!-- Step 3: モーター配線 -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <path d="M 3 5 L 10 5 L 10 15 L 17 15" stroke-width="1.2" />
+                                                    <circle cx="10" cy="5" r="1" fill="#06d6a0" />
+                                                    <circle cx="10" cy="15" r="1" fill="#06d6a0" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">③ モーター配線</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">極性チェック＆はんだ付け</span>
+                                            </div>
+
+                                            <!-- Step 4: 車体最終組立 -->
+                                            <div class="rounded-lg border border-[#1c2541] bg-[#050914] p-2 relative flex flex-col items-center justify-center text-center overflow-hidden h-[105px]">
+                                                <div class="absolute inset-0 opacity-10 blueprint-bg"></div>
+                                                <svg class="w-8 h-8 text-[#06d6a0]/60 mb-1" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1">
+                                                    <rect x="6" y="4" width="8" height="12" rx="1" />
+                                                    <circle cx="10" cy="10" r="2.5" stroke-dasharray="1 1" />
+                                                    <circle cx="10" cy="4" r="1.5" fill="#06d6a0" />
+                                                </svg>
+                                                <span class="text-[9px] font-bold text-[#06d6a0] block">④ 車体最終組み立て</span>
+                                                <span class="text-[7.5px] text-gray-400 font-medium leading-none mt-0.5">駆動部＆前輪ドッキング</span>
                                             </div>
                                         </div>
                                     </div>
@@ -514,7 +642,7 @@
                             </div>
                             <h3 class="text-lg md:text-xl font-bold mb-3 text-white">必要なものを話し合うブレインストーミング</h3>
                             <p class="text-sm text-gray-400 leading-relaxed mb-4">
-                                5人のメンバー全員で、卒業研究のテーマ実現に向けて「何を用意すべきか」について初めての本格的なディスカッションを行いました。それぞれの異なる視点からアイデアを出し合い、まずは予算や制限を取り払い、自由なブレインストーミングを実施しました。
+                                5人のメンバー全員で、卒業研究のテーマ実現に向けて「何を用意すべきか」について初めて of 本格的なディスカッションを行いました。それぞれの異なる視点からアイデアを出し合い、まずは予算や制限を取り払い、自由なブレインストーミングを実施しました。
                             </p>
                             <!-- Highlighted Outcomes -->
                             <div class="bg-[#0b132b] p-3.5 rounded-lg border border-[#1c2541]">
@@ -531,7 +659,7 @@
             </div>
         </section>
 
-        <!-- Project Status Section -->
+        <!-- 現在の進捗状況セクション -->
         <section id="stats" class="py-16 px-4 md:px-8 border-t border-[#1c2541]">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
@@ -544,7 +672,7 @@
                         <span class="text-sm font-semibold text-[#48cae4]">計画全体の達成率</span>
                         <span class="text-xl font-bold text-white font-mono">45%</span>
                     </div>
-                    <!-- Progress Bar Container -->
+                    <!-- 進捗プログレスバー -->
                     <div class="w-full bg-[#0b132b] h-3.5 rounded-full overflow-hidden border border-[#1c2541]">
                         <div class="bg-gradient-to-r from-[#48cae4] to-[#06d6a0] h-full rounded-full transition-all duration-1000" style="width: 45%"></div>
                     </div>
@@ -571,7 +699,7 @@
             </div>
         </section>
 
-        <!-- Reflection / Next Step Section -->
+        <!-- 振り返りと今後の展望セクション -->
         <section id="reflection" class="py-16 px-4 md:px-8 bg-[#090f20] border-t border-[#1c2541]">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
@@ -603,22 +731,22 @@
 
     </main>
 
-    <!-- Footer -->
+    <!-- フッター -->
     <footer class="bg-[#050914] text-gray-500 py-10 px-4 md:px-8 border-t border-[#1c2541]/40">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
             <div>
-                <span class="text-sm text-gray-300 font-semibold block mb-1">Graduation Research Portfolio</span>
+                <span class="text-sm text-gray-300 font-semibold block mb-1">卒業研究ポートフォリオ | Graduation Research Portfolio</span>
                 <p class="text-xs">© 2026 High School Graduation Research Project. All rights reserved.</p>
             </div>
             <div class="flex items-center space-x-4 text-xs">
-                <span>Created by Project Team Alpha</span>
+                <span>プロジェクトチーム Alpha 作成</span>
                 <span class="text-gray-700">|</span>
                 <a href="#about" class="hover:text-white transition-colors">Topへ戻る</a>
             </div>
         </div>
     </footer>
 
-    <!-- JavaScript to toggle mobile menu -->
+    <!-- JavaScript モバイルメニュー制御 -->
     <script>
         const menuBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
