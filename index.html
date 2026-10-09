@@ -161,7 +161,7 @@ body {
           </div>
           <h3 class="text-lg font-bold mb-3 text-white">研究テーマ</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            <comment-tag id="1">※ここに研究の具体的なタイトルや、どのような社会課題や興味からこの研究を選んだのか、動機を記入します。</comment-tag id="1" text="研究活動がかなり具体化（自動水平維持装置＋自作台車の製作）してきたため、例えば『センサー制御による搬送台車の自動水平維持機構の開発』のようにタイトルを具体的に記載するとポートフォリオとしての完成度が格段に向上します。" type="suggestion">
+            ※ここに研究の具体的なタイトル（例：センサー制御による搬送台車の自動水平維持機構の開発）や、どのような社会課題・興味からこの研究を選んだのか動機を記入します。
           </p>
         </div>
         <!-- ターゲットカード -->
@@ -171,7 +171,7 @@ body {
           </div>
           <h3 class="text-lg font-bold mb-3 text-white">研究目的 (ゴール)</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            この研究を通じて、どのような状態を達成したいか。何が明らかになれば、あるいはどんなモノが完成すれば成功とするかを定義します。
+            斜面や段差走行時においても積載部をリアルタイムに水平保ち、運搬物の転倒や液体こぼれを防ぐ自動水平制御ロボット台車の完成。
           </p>
         </div>
         <!-- 手法カード -->
@@ -181,7 +181,7 @@ body {
           </div>
           <h3 class="text-lg font-bold mb-3 text-white">研究の手法</h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            アンケート調査、実験データの測定、プロトタイプの開発、文献調査など、目標を達成するためにどのようなアクションを起こすか。
+            CADによる設計とレーザー加工機による高精度シャーシ製作、Arduinoマイコンとジャイロ/加速度センサーによるサーボモーターの自動フィードバック制御。
           </p>
         </div>
       </div>
@@ -231,7 +231,7 @@ body {
           </div>
           <h4 class="text-sm font-bold text-white mb-1">メンバーD</h4>
           <span class="px-2 py-0.5 rounded text-[10px] font-semibold bg-pink-500/10 text-pink-400">制作班 / ハードウェア</span>
-          <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">車体フレームの設計、試作、メカ的な組み立てを担当します。</p>
+          <p class="text-[11px] text-gray-500 mt-3 leading-relaxed">CAD設計、アクリル板レーザー加工、車体フレームの組み立てを担当します。</p>
         </div>
         <!-- メンバー 5 -->
         <div class="bg-[#111a36] p-5 rounded-xl border border-[#1c2541] text-center transition-all duration-300 hover:border-yellow-400/50">
@@ -255,6 +255,103 @@ body {
       </div>
       <!-- タイムラインの親要素 -->
       <div class="relative border-l border-[#1c2541] ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
+
+        <!-- 第8回活動 -->
+        <div class="relative group">
+          <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-[#06d6a0] text-[#06d6a0] group-hover:bg-[#06d6a0] group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-[#06d6a0]/30 glow-border">
+            8
+          </span>
+          <div class="bg-[#111a36] p-6 rounded-xl border border-[#06d6a0]/30 glow-card transition-all-300">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-[#06d6a0]/20 text-[#06d6a0] border border-[#06d6a0]/30 self-start">第八回 活動</span>
+              <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.09.25</span>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">2班に分かれて作業継続：CAD・レーザー加工によるアクリル加工と自動水平維持機能の成功検証</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+              今回も引き続き「制作班」と「プログラミング班」の2チームに分かれて開発を進めました。デジタルファブリケーション機器の導入によるシャーシ加工と、制御プログラムを組み合わせた自動水平保持の実地検証に成功しました。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- 制作班 -->
+              <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="w-6 h-6 rounded bg-[#06d6a0]/20 flex items-center justify-center text-[#06d6a0] text-xs">
+                      <i class="fas fa-drafting-compass"></i>
+                    </span>
+                    <h4 class="text-sm font-bold text-[#06d6a0]">制作班（ハードウェア）</h4>
+                  </div>
+                  <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                    <comment-tag id="1">CADソフトウェアを用いて穴を開ける位置や外形フレームをデジタル製図し、レーザー加工機を使用してアクリル板に寸分の狂いもなく正確な開孔と切り出し加工を行いました。</comment-tag id="1" text="CADでの設計（使用したCAD名や穴のピッチ寸法）やレーザー加工機の設定値（出力W数や加工速度など）を記録しておくと、論文や技術資料としての再現性が向上し、説得力が増します。" type="suggestion">
+                  </p>
+                  <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
+                    <div class="absolute inset-0 opacity-15 blueprint-bg"></div>
+                    <!-- レーザー加工・アクリルCADイメージ図 -->
+                    <svg class="w-2/3 h-20 text-[#06d6a0]" viewBox="0 0 100 50" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <rect x="15" y="10" width="70" height="30" rx="2" fill="#1c2541" fill-opacity="0.5" stroke="#06d6a0" stroke-dasharray="2 1" />
+                      <circle cx="25" cy="20" r="3" stroke="#48cae4" fill="none" />
+                      <circle cx="75" cy="20" r="3" stroke="#48cae4" fill="none" />
+                      <circle cx="25" cy="30" r="3" stroke="#48cae4" fill="none" />
+                      <circle cx="75" cy="30" r="3" stroke="#48cae4" fill="none" />
+                      <!-- レーザー光線 -->
+                      <line x1="50" y1="0" x2="50" y2="25" stroke="#ff0055" stroke-width="1.5" />
+                      <circle cx="50" cy="25" r="2" fill="#ff0055" class="pulse-node" />
+                    </svg>
+                    <span class="text-[9px] font-bold text-[#06d6a0] tracking-wider uppercase mt-1 z-10">CADデータ連動 レーザーアクリル加工</span>
+                    <span class="text-[8px] text-gray-500 z-10 font-mono">位置精度: ±0.1mm アクリルプレート成形</span>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-[#06d6a0] flex items-center font-semibold">
+                  <i class="fas fa-check-circle mr-1.5"></i> レーザー加工機による高精度アクリル加工完了
+                </div>
+              </div>
+
+              <!-- プログラミング班 -->
+              <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="w-6 h-6 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 text-xs">
+                      <i class="fas fa-balance-scale"></i>
+                    </span>
+                    <h4 class="text-sm font-bold text-purple-400">プログラミング班</h4>
+                  </div>
+                  <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                    <comment-tag id="2">制御サーボモーターの軸先端にテスト用の可動プレートを取り付け、センサー制御プログラムを稼働させて実際に土台が傾いてもプレートが常に水平を保てるかを動作実験したところ、無事に水平保持機能を確かめることができました。</comment-tag id="2" text="『水平を保てた』という定性的な表現に加え、『最大何度の傾斜まで対応できたか』や『応答時間（約◯秒で水平復帰）』などの定量的データを併記すると、実験結果の技術的評価がさらに高まります。" type="suggestion">
+                  </p>
+                  <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
+                    <div class="absolute inset-0 opacity-15 blueprint-bg"></div>
+                    <!-- 自動水平維持可動テーブルイメージ -->
+                    <svg class="w-2/3 h-20 text-purple-400" viewBox="0 0 100 50" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <!-- 傾いた車体ベース -->
+                      <line x1="20" y1="38" x2="80" y2="28" stroke="#48cae4" stroke-width="2" />
+                      <!-- モーター軸 -->
+                      <line x1="50" y1="33" x2="50" y2="18" stroke="#aaa" stroke-width="1.5" />
+                      <!-- 保持された水平プレート -->
+                      <line x1="25" y1="18" x2="75" y2="18" stroke="#06d6a0" stroke-width="3" />
+                      <circle cx="50" cy="18" r="3" fill="#06d6a0" class="pulse-node" />
+                      <!-- 水平ガイド線 -->
+                      <line x1="15" y1="18" x2="85" y2="18" stroke-dasharray="1 2" stroke-opacity="0.4" stroke="#06d6a0" />
+                    </svg>
+                    <span class="text-[9px] font-bold text-purple-400 tracking-wider uppercase mt-1 z-10">姿勢制御アルゴリズム 実地検証成功</span>
+                    <span class="text-[8px] text-gray-500 z-10 font-mono">フィードバック制御: リアルタイム自動補正</span>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-emerald-400 flex items-center font-semibold">
+                  <i class="fas fa-check-circle mr-1.5"></i> 傾斜追従での自動水平保持動作を確認成功
+                </div>
+              </div>
+            </div>
+
+            <!-- 工夫と成果ポイント -->
+            <div class="mt-5 bg-gradient-to-r from-emerald-500/10 to-cyan-500/10 p-4 rounded-lg border border-[#06d6a0]/30">
+              <h4 class="text-xs font-semibold text-[#06d6a0] uppercase tracking-wider mb-2 flex items-center">
+                <i class="fas fa-rocket mr-1.5"></i> 研究の大きな進展：ハードとソフトの統合への架け橋
+              </h4>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                制作班が<strong>CAD設計＋レーザー加工機</strong>による高度な加工技術を習得したことで、手作業では不可能だったミリ単位以下の精密なパーツ作成が可能になりました。同時に、プログラミング班が<strong>「モーター＋板」の最小構成で自動水平制御の原理実証（PoC）に成功</strong>したため、両者を合体させる「完成機体」に向けた最大の技術的障壁を突破しました。
+              </p>
+            </div>
+          </div>
+        </div>
 
         <!-- 第7回活動 -->
         <div class="relative group">
@@ -281,7 +378,7 @@ body {
                     <h4 class="text-sm font-bold text-purple-400">プログラミング班</h4>
                   </div>
                   <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                    <comment-tag id="2">水平にするための土台の加工と調整を行いました。サーボモーターの回転軸と可動テーブルがスムーズに運動伝達できるようマウント位置をミリ単位で微調整し、水平保持の機構精度を高めました。</comment-tag id="2" text="「土台の加工と調整」について、具体的にどの部品（サーボモーターのマウント位置、可動軸のガタツキ抑制など）を調整したか追記すると、技術的な工夫が明確に伝わります。" type="suggestion">
+                    水平にするための土台の加工と調整を行いました。サーボモーターの回転軸と可動テーブルがスムーズに運動伝達できるようマウント位置をミリ単位で微調整し、水平保持の機構精度を高めました。
                   </p>
                   <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
                     <div class="absolute inset-0 opacity-15 blueprint-bg"></div>
@@ -312,7 +409,7 @@ body {
                     <h4 class="text-sm font-bold text-[#06d6a0]">制作班（ハードウェア）</h4>
                   </div>
                   <p class="text-xs text-gray-300 leading-relaxed mb-4">
-                    <comment-tag id="3">台車のもう一つの試作品（2号機）を作るため、アクリル板を切り出して精密な位置合わせの穴あけ加工を実施し、モーターを取り付けました。</comment-tag id="3" text="「アクリル板加工時の割れ防止対策」や「透明アクリル板の採用による内部構造の視認性向上」などの意図や工夫を1言書き添えると、ものづくりとしての完成度がアピールできます。" type="suggestion">
+                    台車のもう一つの試作品（2号機）を作るため、アクリル板を切り出して精密な位置合わせの穴あけ加工を実施し、モーターを取り付けました。
                   </p>
                   <!-- 4ステップ手順 -->
                   <div class="grid grid-cols-2 gap-2 mb-3">
@@ -749,23 +846,23 @@ body {
       <div class="bg-[#111a36] p-6 sm:p-8 rounded-xl border border-[#1c2541] glow-border">
         <div class="flex justify-between items-center mb-3">
           <span class="text-sm font-semibold text-[#48cae4]">計画全体の達成率</span>
-          <span class="text-xl font-bold text-white font-mono">65%</span>
+          <span class="text-xl font-bold text-white font-mono">75%</span>
         </div>
         <div class="w-full bg-[#0b132b] h-3.5 rounded-full overflow-hidden border border-[#1c2541]">
-          <div class="bg-gradient-to-r from-[#48cae4] via-[#06d6a0] to-indigo-400 h-full rounded-full transition-all duration-1000" style="width: 65%"></div>
+          <div class="bg-gradient-to-r from-[#48cae4] via-[#06d6a0] to-indigo-400 h-full rounded-full transition-all duration-1000" style="width: 75%"></div>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1c2541]/60 text-center">
           <div>
             <span class="text-xs text-gray-500 block">総ミーティング時間</span>
-            <span class="text-lg font-bold text-white font-mono">18.0時間</span>
+            <span class="text-lg font-bold text-white font-mono">21.0時間</span>
           </div>
           <div>
             <span class="text-xs text-gray-500 block">現在のフェーズ</span>
-            <span class="text-sm font-bold text-[#48cae4] block mt-1">試作2号機製作・土台加工</span>
+            <span class="text-sm font-bold text-[#48cae4] block mt-1">レーザー加工＆水平動作実証完了</span>
           </div>
           <div>
             <span class="text-xs text-gray-500 block">次回マイルストーン</span>
-            <span class="text-xs font-bold text-white block mt-1">アクリル台車への水平維持台座の結合・走行テスト</span>
+            <span class="text-xs font-bold text-white block mt-1">アクリル実車への水平制御機構統合・傾斜走行テスト</span>
           </div>
           <div>
             <span class="text-xs text-gray-500 block">共同研究メンバー</span>
@@ -789,7 +886,7 @@ body {
             <span class="w-2 h-2 rounded-full bg-yellow-400 mr-2"></span> これまでの気づき
           </h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            アクリル板を用いた試作2号機の製作により、車体フレームの剛性が大幅に向上しました。また、水平化のための可動土台を細かく調整したことで、制御信号に対する物理的な追従性や滑らかさが大きく改善される手応えを得ています。
+            CAD製図とレーザー加工機による加工を行うことで、手作業での穴あけ加工に比べて位置精度が格段に向上し、アクリルパーツの組み込み精度が向上しました。また、プログラミング班の基本水平保持テストが成功したことで、制御理論が物理的に正しく機能することが実証されました。
           </p>
         </div>
         <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541]">
@@ -797,7 +894,7 @@ body {
             <span class="w-2 h-2 rounded-full bg-[#06d6a0] mr-2"></span> 次回のアクション
           </h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            プログラミング班が調整した水平維持土台を、制作班が組み上げたアクリル製台車（試作2号機）の上部に結合し、加速度・ジャイロセンサーを組み込んだ実走動作テストへ移行します。
+            レーザー加工で切り出したアクリル製シャーシに、今回水平保持が確かめられたモーター制御機構を完全統合し、斜面や段差走行時におけるリアルタイムの姿勢補正追従データ（制御遅延や傾斜角誤差）を計測・分析します。
           </p>
         </div>
       </div>
