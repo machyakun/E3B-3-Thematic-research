@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>課題研究 ポートフォリオ | Graduation Research Portfolio</title>
+<title>課題研究 ポートフォリオ | Subject Research Portfolio</title>
 <!-- Tailwind CSS (レスポンシブなUIユーティリティクラス) -->
 <script src="https://cdn.tailwindcss.com"></script>
 <!-- Font Awesome (アイコンライブラリ) -->
@@ -246,12 +246,12 @@ body {
     </div>
   </section>
 
-  <!-- 活動タイムラインセクション（第1回〜第10回の昇順） -->
+  <!-- 活動タイムラインセクション（第1回〜第11回の昇順） -->
   <section id="timeline" class="py-20 px-4 md:px-8 border-t border-[#1c2541]">
     <div class="max-w-4xl mx-auto">
       <div class="text-center mb-16">
         <h2 class="text-2xl md:text-3xl font-bold tracking-tight">活動ドキュメント</h2>
-        <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">活動記録（第1回 〜 第10回）</p>
+        <p class="text-[#06d6a0] text-sm mt-2 uppercase tracking-widest">活動記録（第1回 〜 第11回）</p>
       </div>
       <!-- タイムラインの親要素 -->
       <div class="relative border-l border-[#1c2541] ml-4 md:ml-8 pl-8 md:pl-12 space-y-12">
@@ -268,7 +268,7 @@ body {
             </div>
             <h3 class="text-lg md:text-xl font-bold mb-3 text-white">必要なものを話し合うブレインストーミング</h3>
             <p class="text-sm text-gray-400 leading-relaxed mb-4">
-              5人のメンバー全員で、卒業研究のテーマ実現に向けて「何を用意すべきか」について初めての本格的なディスカッションを行いました。それぞれの異なる視点からアイデアを出し合い、まずは予算や制限を取り払い、自由なブレインストーミングを実施しました。
+              5人のメンバー全員で、課題研究のテーマ実現に向けて「何を用意すべきか」について初めての本格的なディスカッションを行いました。それぞれの異なる視点からアイデアを出し合い、まずは予算や制限を取り払い、自由なブレインストーミングを実施しました。
             </p>
             <div class="bg-[#0b132b] p-3.5 rounded-lg border border-[#1c2541]">
               <h4 class="text-xs font-semibold text-[#48cae4] uppercase tracking-wider mb-2">得られた成果 / 決定事項</h4>
@@ -1005,6 +1005,107 @@ body {
           </div>
         </div>
 
+        <!-- 第11回活動 -->
+        <div class="relative group">
+          <span class="absolute -left-[45px] md:-left-[61px] top-1.5 flex items-center justify-center w-8 h-8 rounded-full bg-[#111a36] border-2 border-[#48cae4] text-[#48cae4] group-hover:bg-[#48cae4] group-hover:text-[#0b132b] transition-all duration-300 z-10 shadow-md shadow-[#48cae4]/30 glow-border text-xs font-bold">
+            11
+          </span>
+          <div class="bg-[#111a36] p-6 rounded-xl border border-[#48cae4]/40 glow-card transition-all-300">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-2 mb-4">
+              <span class="px-2.5 py-0.5 rounded text-xs font-semibold bg-[#48cae4]/20 text-[#48cae4] border border-[#48cae4]/30 self-start">第十一回 活動（3D造形パーツ実装・無線通信検証）</span>
+              <span class="text-xs text-gray-500 font-mono"><i class="far fa-calendar-alt mr-1"></i> 2026.11.27</span>
+            </div>
+            <h3 class="text-lg md:text-xl font-bold mb-3 text-white">3Dプリンターによるモーター固定部品の造形とコントローラー無線化の検証</h3>
+            <p class="text-sm text-gray-400 leading-relaxed mb-6">
+              前回の試作土台をもとに実用強度を高めるための3Dプリント造形と、操作の完全コードレス化を目指したコントローラーの無線通信テストを実施しました。
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <!-- プログラミング班 -->
+              <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="w-6 h-6 rounded bg-purple-500/20 flex items-center justify-center text-purple-400 text-xs">
+                      <i class="fas fa-cube"></i>
+                    </span>
+                    <h4 class="text-sm font-bold text-purple-400">プログラミング班（3Dプリント造形）</h4>
+                  </div>
+                  <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                    前回の検証結果を踏まえ、3Dプリンターを活用してモーターを車体へ強固かつ精密に固定するための専用マウント部品を造形・製作しました。
+                  </p>
+                  <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
+                    <div class="absolute inset-0 opacity-15 blueprint-bg"></div>
+                    <!-- 3Dプリンター造形イメージ図 -->
+                    <svg class="w-2/3 h-20 text-purple-400" viewBox="0 0 100 50" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <!-- 3Dプリンターノズル -->
+                      <polygon points="46,6 54,6 52,13 48,13" fill="#48cae4" stroke="#48cae4" />
+                      <line x1="25" y1="6" x2="75" y2="6" stroke="#1c2541" stroke-width="2" />
+                      <!-- 積層造形中の固定パーツ -->
+                      <rect x="32" y="28" width="36" height="10" rx="1" fill="#purple-400" fill-opacity="0.25" stroke="#purple-400" />
+                      <rect x="38" y="18" width="24" height="10" rx="1" fill="#06d6a0" fill-opacity="0.2" stroke="#06d6a0" stroke-dasharray="1.5 1" />
+                      <circle cx="50" cy="14.5" r="1.5" fill="#ff0055" class="pulse-node" />
+                      <!-- ビルドプレート -->
+                      <line x1="20" y1="38" x2="80" y2="38" stroke="#48cae4" stroke-width="2" />
+                    </svg>
+                    <span class="text-[9px] font-bold text-purple-400 tracking-wider uppercase mt-1 z-10">3Dプリンター製 モーター固定マウント</span>
+                    <span class="text-[8px] text-gray-500 z-10 font-mono">積層造形: カスタムフィット・高剛性ブラケット</span>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-emerald-400 flex items-center font-semibold">
+                  <i class="fas fa-check-circle mr-1.5"></i> 3Dプリンターによる専用固定部品の製作完了
+                </div>
+              </div>
+
+              <!-- 制作班 -->
+              <div class="bg-[#0b132b] p-4 rounded-lg border border-[#1c2541] flex flex-col justify-between">
+                <div>
+                  <div class="flex items-center space-x-2 mb-3">
+                    <span class="w-6 h-6 rounded bg-[#06d6a0]/20 flex items-center justify-center text-[#06d6a0] text-xs">
+                      <i class="fas fa-broadcast-tower"></i>
+                    </span>
+                    <h4 class="text-sm font-bold text-[#06d6a0]">制作班（コントローラー無線化検証）</h4>
+                  </div>
+                  <p class="text-xs text-gray-300 leading-relaxed mb-4">
+                    操縦コントローラーと車体間の配線をなくす無線化（ワイヤレス通信制御）に挑戦しましたが、通信の確立・信号伝達において課題が発生し、今回のテストでは動作成功に至りませんでした。
+                  </p>
+                  <div class="mb-3 rounded-lg overflow-hidden border border-[#1c2541] bg-[#050914] aspect-[4/3] relative flex flex-col items-center justify-center">
+                    <div class="absolute inset-0 opacity-15 blueprint-bg"></div>
+                    <!-- 無線通信エラー図解 -->
+                    <svg class="w-2/3 h-20 text-[#06d6a0]" viewBox="0 0 100 50" fill="none" stroke="currentColor" stroke-width="1.2">
+                      <!-- 送信機（コントローラー） -->
+                      <rect x="14" y="18" width="18" height="14" rx="2" fill="#1c2541" stroke="#48cae4" />
+                      <text x="23" y="27" font-size="5" fill="#48cae4" text-anchor="middle" font-family="monospace">TX</text>
+                      <!-- 受信機（車体側） -->
+                      <rect x="68" y="18" width="18" height="14" rx="2" fill="#1c2541" stroke="#06d6a0" />
+                      <text x="77" y="27" font-size="5" fill="#06d6a0" text-anchor="middle" font-family="monospace">RX</text>
+                      <!-- 途切れる電波と警告マーク -->
+                      <path d="M 36 21 Q 41 25 36 29" stroke="#48cae4" />
+                      <path d="M 40 18 Q 47 25 40 32" stroke="#48cae4" stroke-dasharray="1 1" />
+                      <line x1="47" y1="21" x2="55" y2="29" stroke="#ff0055" stroke-width="1.8" />
+                      <line x1="55" y1="21" x2="47" y2="29" stroke="#ff0055" stroke-width="1.8" />
+                      <circle cx="51" cy="25" r="6" stroke="#ff0055" stroke-opacity="0.5" class="pulse-node" />
+                    </svg>
+                    <span class="text-[9px] font-bold text-amber-400 tracking-wider uppercase mt-1 z-10">コントローラー無線化 通信リンク検証</span>
+                    <span class="text-[8px] text-gray-500 z-10 font-mono">ステータス: 通信未確立（原因切り分け・再検証へ）</span>
+                  </div>
+                </div>
+                <div class="mt-2 pt-2 border-t border-[#1c2541]/40 text-xs text-amber-400 flex items-center font-semibold">
+                  <i class="fas fa-exclamation-triangle mr-1.5"></i> 無線通信の接続に苦戦（次回原因特定・再挑戦）
+                </div>
+              </div>
+            </div>
+
+            <!-- 振り返りと課題整理 -->
+            <div class="mt-5 bg-gradient-to-r from-amber-500/10 to-[#48cae4]/10 p-4 rounded-lg border border-amber-500/30">
+              <h4 class="text-xs font-semibold text-amber-400 uppercase tracking-wider mb-2 flex items-center">
+                <i class="fas fa-search-plus mr-1.5"></i> 今回の成果と次回に向けた課題の切り分け
+              </h4>
+              <p class="text-xs text-gray-300 leading-relaxed">
+                <strong>3Dプリンター</strong>を導入したことで、既製品や手加工では難しかったモーター寸法にぴったり合う専用固定部品を成形でき、機構の信頼性が大きく向上しました。一方、コントローラーの無線化では通信エラーの壁に直面しましたが、有線状態でのモータードライバー制御自体はすでに成功しているため、<strong>「通信モジュール単体の送受信テスト」</strong>と<strong>「電源ノイズ・ピン配線の確認」</strong>を切り分けて検証することで解決を目指します。
+              </p>
+            </div>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -1019,23 +1120,23 @@ body {
       <div class="bg-[#111a36] p-6 sm:p-8 rounded-xl border border-[#1c2541] glow-border">
         <div class="flex justify-between items-center mb-3">
           <span class="text-sm font-semibold text-[#48cae4]">計画全体の達成率</span>
-          <span class="text-xl font-bold text-white font-mono">88%</span>
+          <span class="text-xl font-bold text-white font-mono">90%</span>
         </div>
         <div class="w-full bg-[#0b132b] h-3.5 rounded-full overflow-hidden border border-[#1c2541]">
-          <div class="bg-gradient-to-r from-[#48cae4] via-[#06d6a0] to-indigo-400 h-full rounded-full transition-all duration-1000" style="width: 88%"></div>
+          <div class="bg-gradient-to-r from-[#48cae4] via-[#06d6a0] to-indigo-400 h-full rounded-full transition-all duration-1000" style="width: 90%"></div>
         </div>
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-4 mt-8 pt-6 border-t border-[#1c2541]/60 text-center">
           <div>
             <span class="text-xs text-gray-500 block">総ミーティング時間</span>
-            <span class="text-lg font-bold text-white font-mono">27.0時間</span>
+            <span class="text-lg font-bold text-white font-mono">30.0時間</span>
           </div>
           <div>
             <span class="text-xs text-gray-500 block">現在のフェーズ</span>
-            <span class="text-sm font-bold text-[#48cae4] block mt-1">2輪独立制御・固定土台試作完了</span>
+            <span class="text-sm font-bold text-[#48cae4] block mt-1">3D固定部品造形・無線通信デバッグ</span>
           </div>
           <div>
             <span class="text-xs text-gray-500 block">次回マイルストーン</span>
-            <span class="text-xs font-bold text-white block mt-1">実車への水平装置搭載と最終走行テスト</span>
+            <span class="text-xs font-bold text-white block mt-1">無線通信の確立と水平装置の実車統合</span>
           </div>
           <div>
             <span class="text-xs text-gray-500 block">共同研究メンバー</span>
@@ -1059,7 +1160,7 @@ body {
             <span class="w-2 h-2 rounded-full bg-yellow-400 mr-2"></span> これまでの気づき
           </h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            モータードライバーを2個に増設して左右輪を独立制御できるようにしたことで、単なる前後進だけでなく狙った方向へ自在に回転・旋回する機動力が身につきました。また、サーボモーターは動作時の反力が強いため、車体側へ確実に固定する土台設計の重要性を改めて実感しました。
+            レーザー加工機に加えて3Dプリンターを活用できるようになったことで、立体的なモーター固定部品を自在に設計・製作できる強みが身につきました。一方で、無線化のような通信技術は配線ミスや電源の安定性、プログラムのペアリング設定など複数の要因が絡むため、段階的な切り分け検証が重要であると学びました。
           </p>
         </div>
         <div class="bg-[#111a36] p-6 rounded-xl border border-[#1c2541]">
@@ -1067,7 +1168,7 @@ body {
             <span class="w-2 h-2 rounded-full bg-[#06d6a0] mr-2"></span> 次回のアクション
           </h3>
           <p class="text-sm text-gray-400 leading-relaxed">
-            試作した固定土台を使ってアクリル製台車に水平維持機構を本実装し、無線操縦での前後進・旋回と自動水平保持を同時に稼働させる最終統合テストおよび発表用データの収集を行います。
+            コントローラー無線化のエラー原因（通信モジュール設定や信号線の接続など）を特定してワイヤレス操縦を確立します。同時に、3Dプリンターで製作した固定部品を用いて水平維持機構をアクリル台車へ本実装し、総合走行テストを実施します。
           </p>
         </div>
       </div>
@@ -1079,8 +1180,8 @@ body {
 <footer class="bg-[#050914] text-gray-500 py-10 px-4 md:px-8 border-t border-[#1c2541]/40">
   <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-6">
     <div>
-      <span class="text-sm text-gray-300 font-semibold block mb-1">課題研究ポートフォリオ | Graduation Research Portfolio</span>
-      <p class="text-xs">© 2026 High School Graduation Research Project. All rights reserved.</p>
+      <span class="text-sm text-gray-300 font-semibold block mb-1">課題研究ポートフォリオ | Subject Research Portfolio</span>
+      <p class="text-xs">© 2026 High School Subject Research Project. All rights reserved.</p>
     </div>
     <div class="flex items-center space-x-4 text-xs">
       <span>プロジェクトチーム Alpha 作成</span>
